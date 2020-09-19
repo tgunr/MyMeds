@@ -20,7 +20,7 @@ struct Medication: Hashable, Codable, Identifiable {
     var isFavorite: Bool
     var dosage: Int
     var interval: String
-    var refilled: String
+    var refilled: Date
     var quantity: Int
     var notify: Bool
     var notifyLevel: Int

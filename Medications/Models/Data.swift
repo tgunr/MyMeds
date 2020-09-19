@@ -6,7 +6,7 @@ import UIKit
 import SwiftUI
 import CoreLocation
 
-let medicationData: [Medication] = load("landmarkData.json")
+let medicationData: [Medication] = load("medData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -22,8 +22,14 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
     }
     
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+//    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    formatter.dateFormat = "MM/dd/yyyy"
+
     do {
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
         return try decoder.decode(T.self, from: data)
     } catch {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")

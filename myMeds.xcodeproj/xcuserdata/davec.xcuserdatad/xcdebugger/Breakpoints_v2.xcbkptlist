@@ -14,8 +14,8 @@
             filePath = "Medications/Models/Data.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "load(_:)"
             landmarkType = "9">
          </BreakpointContent>
