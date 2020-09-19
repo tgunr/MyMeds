@@ -18,7 +18,7 @@ struct MedicationList: View {
                 }
                 
                 ForEach(userData.medications) { medication in
-                    if !self.userData.showFavoritesOnly || medication.isFavorite {
+                    if !self.userData.showFavoritesOnly || medication.essentail {
                         NavigationLink(
                             destination: MedicationDetail(medication: medication)
                                 .environmentObject(self.userData)

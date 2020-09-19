@@ -18,7 +18,7 @@ struct MedicationRow: View {
             Text(medication.name)
             Spacer()
 
-            if medication.isFavorite {
+            if medication.essentail {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)

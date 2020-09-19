@@ -13,13 +13,13 @@ struct Medication: Hashable, Codable, Identifiable {
     var name: String
     fileprivate var imageName: String
     fileprivate var coordinates: Coordinates
-    var state: String
+    var kind: String
     var city: String
     var park: String
     var category: Category
-    var isFavorite: Bool
+    var essentail: Bool
     var dosage: Int
-    var interval: String
+    var interval: Interval
     var refilled: Date
     var quantity: Int
     var notify: Bool
@@ -32,7 +32,7 @@ struct Medication: Hashable, Codable, Identifiable {
     }
 
     enum Category: String, CaseIterable, Codable, Hashable {
-        case featured = "Featured"
+        case pain
         case lakes = "Lakes"
         case rivers = "Rivers"
         case mountains = "Mountains"
@@ -43,6 +43,13 @@ struct Medication: Hashable, Codable, Identifiable {
         case hours
         case daily
         case days
+    }
+    
+    enum Kind: String, CaseIterable, Codable, Hashable {
+        case pill
+        case liquid
+        case injection
+        case topical
     }
 }
 

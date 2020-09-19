@@ -17,13 +17,13 @@ struct MedicationDetail: View {
     
     var body: some View {
         VStack {
-            MapView(coordinate: medication.locationCoordinate)
-                .edgesIgnoringSafeArea(.top)
-                .frame(height: 300)
-            
-            CircleImage(image: medication.image)
-                .offset(x: 0, y: -130)
-                .padding(.bottom, -130)
+//            MapView(coordinate: medication.locationCoordinate)
+//                .edgesIgnoringSafeArea(.top)
+//                .frame(height: 300)
+//
+//            CircleImage(image: medication.image)
+//                .offset(x: 0, y: -130)
+//                .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
                 HStack {
@@ -32,10 +32,10 @@ struct MedicationDetail: View {
                     
                     Button(action: {
                         self.userData.medications[self.medicationindex]
-                            .isFavorite.toggle()
+                            .essentail.toggle()
                     }) {
                         if self.userData.medications[self.medicationindex]
-                            .isFavorite {
+                            .essentail {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color.yellow)
                         } else {
@@ -46,10 +46,11 @@ struct MedicationDetail: View {
                 }
                 
                 HStack(alignment: .top) {
-                    Text(medication.park)
+                    let dose = medication.dosage
+                    Text("Dosage: \(dose)")
                         .font(.subheadline)
                     Spacer()
-                    Text(medication.state)
+                    Text(medication.kind)
                         .font(.subheadline)
                 }
             }
