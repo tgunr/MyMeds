@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
 		B7394866229F194000C47603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394865229F194000C47603 /* AppDelegate.swift */; };
 		B7394868229F194000C47603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394867229F194000C47603 /* SceneDelegate.swift */; };
 		B739486A229F194000C47603 /* MedicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394869229F194000C47603 /* MedicationDetail.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/pill.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
 		B7394862229F194000C47603 /* MyMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7394865229F194000C47603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7394867229F194000C47603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B739488E229F292E00C47603 /* medData.json */,
+				75FFD5CC25163F6B0081A351 /* percocet.jpg */,
 				B7394890229F292F00C47603 /* chilkoottrail.jpg */,
 				B739488F229F292F00C47603 /* chincoteague.jpg */,
 				B739488A229F292E00C47603 /* hiddenlake.jpg */,
@@ -228,6 +231,7 @@
 				B7394899229F292F00C47603 /* twinlake.jpg in Resources */,
 				B7394896229F292F00C47603 /* umbagog.jpg in Resources */,
 				B739489D229F292F00C47603 /* chilkoottrail.jpg in Resources */,
+				75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */,
 				B739489C229F292F00C47603 /* chincoteague.jpg in Resources */,
 				B739489B229F292F00C47603 /* medData.json in Resources */,
 				B7394893229F292F00C47603 /* icybay.jpg in Resources */,

@@ -13,12 +13,12 @@ struct MedicationList: View {
     var body: some View {
         NavigationView {
             List {
-                Toggle(isOn: $userData.showFavoritesOnly) {
+                Toggle(isOn: $userData.showEssentailOnly) {
                     Text("Show Essential Only")
                 }
                 
                 ForEach(userData.medications) { medication in
-                    if !self.userData.showFavoritesOnly || medication.essentail {
+                    if !self.userData.showEssentailOnly || medication.essentail {
                         NavigationLink(
                             destination: MedicationDetail(medication: medication)
                                 .environmentObject(self.userData)

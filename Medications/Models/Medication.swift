@@ -19,6 +19,7 @@ struct Medication: Hashable, Codable, Identifiable {
     var category: Category
     var essentail: Bool
     var dosage: Int
+    var frequency: Int
     var interval: Interval
     var refilled: Date
     var quantity: Int
