@@ -9,10 +9,15 @@ import SwiftUI
 
 struct AddMedication: View {
     @EnvironmentObject private var userData: UserData
+    @State var delegate: NavigationDelegate?
+//    var medication: Medication
+
     var body: some View {
         Button(action: {
             let newMed = Medication()
             userData.medications.append(newMed)
+            MedicationDetail(medication: newMed)
+//            self.delegate?.moveTo(view: .welcome)
         }, label: {
             Text("Add")
         })
@@ -21,7 +26,9 @@ struct AddMedication: View {
 
 struct MedicationList: View {
     @EnvironmentObject private var userData: UserData
-    
+    @State var delegate: NavigationDelegate?
+    @State private var addMode = false
+
     var body: some View {
         NavigationView {
             List {
@@ -41,7 +48,23 @@ struct MedicationList: View {
                 }
             }
             .navigationBarTitle(Text("Medications"))
-            .navigationBarItems(trailing: AddMedication())
+            .navigationBarItems(trailing: Button(action: {
+                 // button activates link
+                  self.addMode = true
+                } ) {
+                Image(systemName: "plus")
+                    .resizable()
+                    .padding(6)
+                    .frame(width: 24, height: 24)
+                    .background(Color.blue)
+                    .clipShape(Circle())
+                    .foregroundColor(.white)
+            } )
+
+            // invisible link inside NavigationView for add mode
+//            NavigationLink(destination:
+//                            MedicationDetail(medication: Medication()).environmentObject(self.userData),
+//                isActive: $addMode) { EmptyView() }
         }
     }
 }

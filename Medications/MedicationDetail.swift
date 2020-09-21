@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopView: View {
+    @EnvironmentObject var userData: UserData
     var medication: Medication
     var body: some View {
         CircleImage(image: medication.image)
@@ -15,7 +16,7 @@ struct TopView: View {
         HStack() {
             Text(medication.name)
                 .font(.title)
-            EssentailButtonView(medication: medication)
+            EssentailButtonView(medication: medication).environmentObject(self.userData)
             Spacer()
         }
     }
