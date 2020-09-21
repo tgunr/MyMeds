@@ -7,6 +7,18 @@ A view showing a list of medications.
 
 import SwiftUI
 
+struct AddMedication: View {
+    @EnvironmentObject private var userData: UserData
+    var body: some View {
+        Button(action: {
+            let newMed = Medication()
+            userData.medications.append(newMed)
+        }, label: {
+            Text("Add")
+        })
+    }
+}
+
 struct MedicationList: View {
     @EnvironmentObject private var userData: UserData
     
@@ -29,6 +41,7 @@ struct MedicationList: View {
                 }
             }
             .navigationBarTitle(Text("Medications"))
+            .navigationBarItems(trailing: AddMedication())
         }
     }
 }

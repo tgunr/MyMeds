@@ -8,35 +8,23 @@ The model for an individual medication.
 import SwiftUI
 import CoreLocation
 
-struct Medication: Hashable, Codable, Identifiable {
-    var id: Int
-    var name: String
-    fileprivate var imageName: String
-    fileprivate var coordinates: Coordinates
-    var kind: String
-    var city: String
-    var park: String
-    var category: Category
-    var essentail: Bool
-    var dosage: Int
-    var frequency: Int
-    var interval: Interval
-    var refilled: Date
-    var quantity: Int
-    var notify: Bool
-    var notifyLevel: Int
-
-    var locationCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude)
-    }
+class Medication: Identifiable, Codable {
+    var id: UUID = UUID()
+    var name: String = ""
+    fileprivate var imageName: String = ""
+    var kind: String = ""
+    var category: Category?
+    var essentail: Bool = false
+    var dosage: Int = 0
+    var frequency: Int = 0
+    var interval: Interval?
+    var refilled: Date?
+    var quantity: Int = 0
+    var notify: Bool = false
+    var notifyLevel: Int = 0
 
     enum Category: String, CaseIterable, Codable, Hashable {
         case pain
-        case lakes = "Lakes"
-        case rivers = "Rivers"
-        case mountains = "Mountains"
     }
     
     enum Interval: String, CaseIterable, Codable, Hashable {
