@@ -1,12 +1,31 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
+ 
+ Abstract:
+ The scene delegate.
+ */
 
-Abstract:
-The scene delegate.
-*/
-
-import UIKit
 import SwiftUI
+
+enum RootViews {
+    case medlist, welcome // ,meddetail
+}
+
+
+extension RootViewController {
+
+    //Swift View switch. Optional, but my Xcode was not happy when I tried to return a UIHostingController in line.
+    func returnSwiftUIView(type: RootViews) -> UIViewController {
+        switch type {
+            case .welcome:
+                return UIHostingController(rootView: WelcomeView(delegate: self))
+            case .medlist:
+                return UIHostingController(rootView: MedicationList(delegate: self).environmentObject(AppDelegate.shared.userData))
+            //            case .meddetail:
+            //                return UIHostingController(rootView: MedicationDetail(userData: AppDelegate.shared.userData, medication: <#T##Medication#>)
+        }
+    }
+}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,7 +39,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: MedicationList().environmentObject(UserData()))
+            let controller = RootViewController().returnSwiftUIView(type: .medlist)
+            window.rootViewController = controller
+            //
+            //            window.rootViewController = UIHostingController(rootView: MedicationList().environmentObject(UserData()))
             self.window = window
             window.makeKeyAndVisible()
         }
