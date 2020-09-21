@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510CAB22518EC74001028D1 /* WelcomeView.swift */; };
+		757D4C1225193AC4002A0E71 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D4C1125193AC4002A0E71 /* RootViewController.swift */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
 		B7394866229F194000C47603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394865229F194000C47603 /* AppDelegate.swift */; };
 		B7394868229F194000C47603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394867229F194000C47603 /* SceneDelegate.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7510CAB22518EC74001028D1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/pill.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
 		B7394862229F194000C47603 /* MyMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7394865229F194000C47603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				B7394870229F194200C47603 /* LaunchScreen.storyboard */,
 				B7394873229F194200C47603 /* Info.plist */,
 				B739486D229F194200C47603 /* Preview Content */,
+				7510CAB22518EC74001028D1 /* WelcomeView.swift */,
 			);
 			path = Medications;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B7394879229F1B3F00C47603 /* CircleImage.swift */,
+				757D4C1125193AC4002A0E71 /* RootViewController.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -247,8 +253,10 @@
 				B7394882229F28B900C47603 /* Data.swift in Sources */,
 				B7394866229F194000C47603 /* AppDelegate.swift in Sources */,
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,
+				757D4C1225193AC4002A0E71 /* RootViewController.swift in Sources */,
 				B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */,
 				B7394868229F194000C47603 /* SceneDelegate.swift in Sources */,
+				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
 				B7D2AAC5229F4D7C0061E5F5 /* UserData.swift in Sources */,
