@@ -40,6 +40,10 @@ class Medication: Identifiable, Codable {
         case injection
         case topical
     }
+    
+//    init(meds: [Medication]) {
+//        meds.append((self))
+//    }
 }
 
 extension Medication {

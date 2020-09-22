@@ -25,17 +25,15 @@ struct TopView: View {
 struct EssentailButtonView: View {
     @EnvironmentObject var userData: UserData
     var medication: Medication
-    var medicationindex: Int {
-        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    }
+//    var medicationindex: Int {
+//        userData.medications.firstIndex(where: { $0.id == medication.id })!
+//    }
     
     var body: some View {
         Button(action: {
-            self.userData.medications[self.medicationindex]
-                .essentail.toggle()
+            medication.essentail.toggle()
         }) {
-            if self.userData.medications[self.medicationindex]
-                .essentail {
+            if medication.essentail {
                 Image(systemName: "star.fill")
                     .foregroundColor(Color.yellow)
             } else {

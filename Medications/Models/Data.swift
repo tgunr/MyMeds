@@ -6,7 +6,7 @@ import UIKit
 import SwiftUI
 import CoreLocation
 
-let medicationData: [Medication] = load("medData.json")
+var medicationData: [Medication] = load("medData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
