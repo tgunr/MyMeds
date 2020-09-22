@@ -6,12 +6,13 @@
  */
 
 import SwiftUI
+import CoreData
 
 struct AddMedication: View {
     @EnvironmentObject private var userData: UserData
     @State var delegate: NavigationDelegate?
     //    var medication: Medication
-    
+
     var body: some View {
         Button(action: {
             let newMed = Medication()
@@ -26,6 +27,9 @@ struct AddMedication: View {
 
 struct MedicationList: View {
     @EnvironmentObject private var userData: UserData
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(entity: ProgrammingLanguage.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \ProgrammingLanguage.name, ascending: true)]) var languages: FetchedResults<ProgrammingLanguage>
+
     @State var delegate: NavigationDelegate?
     @State private var addMode = false
     

@@ -13,11 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static var shared = AppDelegate()
         public var userData = UserData()
 
-    var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores { description, error in
             if let error = error {
-                // Add your error UI here
+                fatalError("Unresolved error \(error), \(error.localizedDescription)")
             }
         }
         return container

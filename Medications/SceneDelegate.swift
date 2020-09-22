@@ -43,10 +43,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window.rootViewController = controller
             
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let content = MedicationList().environment(\.managedObjectContext, context)
-
-            window.rootViewController = UIHostingController(rootView: content.environmentObject(UserData()))
-//            window.rootViewController = UIHostingController(rootView: content)
+            let content = ContentView().environment(\.managedObjectContext, context)
+//            let content = MedicationList().environment(\.managedObjectContext, context)
+//            let content = ContentView()
+//                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+//            window.rootViewController = UIHostingController(rootView: content.environmentObject(UserData()))
+            window.rootViewController = UIHostingController(rootView: content)
             self.window = window
             window.makeKeyAndVisible()
         }
