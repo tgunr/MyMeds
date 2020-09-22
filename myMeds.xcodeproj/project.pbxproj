@@ -46,7 +46,6 @@
 		7510CAB22518EC74001028D1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		75638DC9251ABBBE0030FE87 /* DataModel 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 1.xcdatamodel"; sourceTree = "<group>"; };
 		75638DCB251ABCDA0030FE87 /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Medicine+CoreDataClass.swift"; path = "Medications/Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
 		75638DCC251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Medicine+CoreDataProperties.swift"; path = "Medications/Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -490,7 +489,6 @@
 		75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				75638DC9251ABBBE0030FE87 /* DataModel 1.xcdatamodel */,
 				75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */,
 			);
 			currentVersion = 75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */;
