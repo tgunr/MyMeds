@@ -10,6 +10,8 @@
 		7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510CAB22518EC74001028D1 /* WelcomeView.swift */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		75638DC5251A9DD40030FE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC4251A9DD40030FE87 /* ContentView.swift */; };
+		75638DCD251ABCDA0030FE87 /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DCB251ABCDA0030FE87 /* Medicine+CoreDataClass.swift */; };
+		75638DCE251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DCC251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift */; };
 		757D4C1225193AC4002A0E71 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D4C1125193AC4002A0E71 /* RootViewController.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
@@ -44,6 +46,9 @@
 		7510CAB22518EC74001028D1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75638DC9251ABBBE0030FE87 /* DataModel 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 1.xcdatamodel"; sourceTree = "<group>"; };
+		75638DCB251ABCDA0030FE87 /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Medicine+CoreDataClass.swift"; path = "Medications/Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		75638DCC251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Medicine+CoreDataProperties.swift"; path = "Medications/Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/pill.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
@@ -90,6 +95,8 @@
 		B7394859229F194000C47603 = {
 			isa = PBXGroup;
 			children = (
+				75638DCB251ABCDA0030FE87 /* Medicine+CoreDataClass.swift */,
+				75638DCC251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift */,
 				B7394864229F194000C47603 /* Medications */,
 				B7394863229F194000C47603 /* Products */,
 			);
@@ -265,6 +272,7 @@
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,
 				757D4C1225193AC4002A0E71 /* RootViewController.swift in Sources */,
 				B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */,
+				75638DCD251ABCDA0030FE87 /* Medicine+CoreDataClass.swift in Sources */,
 				B7394868229F194000C47603 /* SceneDelegate.swift in Sources */,
 				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				75638DC2251A9D950030FE87 /* Persistence.swift in Sources */,
@@ -273,6 +281,7 @@
 				75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */,
 				B7D2AAC5229F4D7C0061E5F5 /* UserData.swift in Sources */,
 				B7394881229F28B900C47603 /* Medication.swift in Sources */,
+				75638DCE251ABCDA0030FE87 /* Medicine+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +490,7 @@
 		75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				75638DC9251ABBBE0030FE87 /* DataModel 1.xcdatamodel */,
 				75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */,
 			);
 			currentVersion = 75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */;
