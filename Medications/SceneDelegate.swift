@@ -39,10 +39,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let controller = RootViewController().returnSwiftUIView(type: .medlist)
-            window.rootViewController = controller
-            //
-            //            window.rootViewController = UIHostingController(rootView: MedicationList().environmentObject(UserData()))
+//            let controller = RootViewController().returnSwiftUIView(type: .medlist)
+//            window.rootViewController = controller
+            
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let content = MedicationList().environment(\.managedObjectContext, context)
+
+            window.rootViewController = UIHostingController(rootView: content.environmentObject(UserData()))
+//            window.rootViewController = UIHostingController(rootView: content)
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -74,6 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 }

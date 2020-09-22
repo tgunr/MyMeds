@@ -4,7 +4,7 @@
 
 import UIKit
 import SwiftUI
-import CoreLocation
+import CoreData
 
 var medicationData: [Medication] = load("medData.json")
 
