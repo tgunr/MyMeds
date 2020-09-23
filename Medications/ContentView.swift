@@ -15,27 +15,60 @@ struct ContentView: View {
     private var items: FetchedResults<Medicine>
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(items) { item in
-                    Text("Start at \(item.start!, formatter: itemFormatter)")
+        NavigationView {
+            VStack {
+                Text("Count: \(items.count)")
+                List {
+                    ForEach(items) { item in
+                        NavigationLink(destination: MedicationDetail(medication: item)) {
+                            Text("\(item.name ?? "Name")")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            HStack {
-                EditButton()
-                Spacer()
-                Button(action: addItem, label: {
-                    Text("Add")
-                })
+                .navigationBarTitle(Text("Meds"))
+//                .navigationBarItems(
+//                    leading:
+//                        HStack {
+//                            EditButton()
+//
+//                            Spacer()
+//                            let newItem = Medicine(context: viewContext)
+//                            let newView = MedicationDetail(medication: newItem)
+//                            NavigationLink(
+//                                destination: newView,
+//                                label: {
+//                                    Image(systemName: "plus")
+//                                        .resizable()
+//                                        .background(Color.blue)
+//                                        .frame(width: 24.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/24.0)
+//                                        .clipShape(Circle())
+//                                        .foregroundColor(.white)
+//                                })
+//                        })
+                
             }
         }
+        .padding(.bottom)
     }
     
     private func addItem() {
         withAnimation {
-            let newItem = Medicine(context: viewContext)
-            newItem.start = Date()
+            let med = Medicine(context: viewContext)
+            med.name = "Medication"
+            med.start = Date()
+            med.category = "pain"
+            med.dosage = 1
+            med.essentail = true
+            med.frequeny = 24
+            med.id = UUID()
+            med.imagename = "pill"
+            med.interval = "daily"
+            med.kind = "pill"
+            med.refilled = Date()
+            med.quantity = 60
+            med.notify = true
+            med.notifylevel = 10
             
             do {
                 try viewContext.save()

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TopView: View {
-    @EnvironmentObject var userData: UserData
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
 //        CircleImage(image: medication.image)
@@ -16,7 +15,7 @@ struct TopView: View {
         HStack() {
             Text(verbatim: medication.name!)
                 .font(.title)
-            EssentailButtonView(medication: medication).environmentObject(self.userData)
+            EssentailButtonView(medication: medication)
             Spacer()
         }
     }
@@ -95,7 +94,7 @@ struct RemainingView: View {
             Text("Remaining: ")
                 .font(.headline)
             Text("\(medication.quantity)")
-            Text("\(medication.kind!)s")
+            Text("\(medication.kind ?? "kind")s")
             Spacer()
         }
     }
@@ -175,7 +174,6 @@ struct NotifyView: View {
 }
 
 struct MedicationDetail: View {
-    @EnvironmentObject var userData: UserData
     var medication: FetchedResults<Medicine>.Element
     
     var body: some View {

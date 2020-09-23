@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		7510CAB22518EC74001028D1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		7536C921251BDAD700F778F2 /* MyMeds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyMeds.entitlements; path = ../MyMeds/MyMeds/MyMeds.entitlements; sourceTree = "<group>"; };
+		7536C921251BDAD700F778F2 /* MyMeds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMeds.entitlements; sourceTree = "<group>"; };
 		7536C922251BDAE600F778F2 /* MyMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsApp.swift; sourceTree = "<group>"; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +110,7 @@
 			children = (
 				B739487E229F282200C47603 /* Models */,
 				B7394865229F194000C47603 /* AppDelegate.swift */,
+				75638DC1251A9D950030FE87 /* Persistence.swift */,
 				75638DC4251A9DD40030FE87 /* ContentView.swift */,
 				B7394867229F194000C47603 /* SceneDelegate.swift */,
 				B73948A0229F2E1F00C47603 /* MedicationList.swift */,
@@ -146,7 +147,6 @@
 		B739487E229F282200C47603 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				75638DC1251A9D950030FE87 /* Persistence.swift */,
 				B7394880229F28B900C47603 /* Data.swift */,
 				B739487F229F28B900C47603 /* Medication.swift */,
 				B7D2AAC4229F4D7C0061E5F5 /* UserData.swift */,
