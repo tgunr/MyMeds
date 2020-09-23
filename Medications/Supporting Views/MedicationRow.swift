@@ -8,14 +8,14 @@ A single row to be displayed in a list of medications.
 import SwiftUI
 
 struct MedicationRow: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
 
     var body: some View {
         HStack {
-            medication.image
+            Image(medication.imagename!)
                 .resizable()
                 .frame(width: 50, height: 50)
-            Text(medication.name)
+            Text(medication.name!)
             Spacer()
 
             if medication.essentail {
@@ -27,12 +27,12 @@ struct MedicationRow: View {
     }
 }
 
-struct MedicationRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MedicationRow(medication: medicationData[0])
-            MedicationRow(medication: medicationData[1])
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
-    }
-}
+//struct MedicationRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            MedicationRow(medication: medicationData[0])
+//            MedicationRow(medication: medicationData[1])
+//        }
+//        .previewLayout(.fixed(width: 300, height: 70))
+//    }
+//}

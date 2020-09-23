@@ -9,12 +9,12 @@ import SwiftUI
 
 struct TopView: View {
     @EnvironmentObject var userData: UserData
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        CircleImage(image: medication.image)
-            .padding(.top)
+//        CircleImage(image: medication.image)
+//            .padding(.top)
         HStack() {
-            Text(medication.name)
+            Text(verbatim: medication.name!)
                 .font(.title)
             EssentailButtonView(medication: medication).environmentObject(self.userData)
             Spacer()
@@ -23,8 +23,7 @@ struct TopView: View {
 }
 
 struct EssentailButtonView: View {
-    @EnvironmentObject var userData: UserData
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
 //    var medicationindex: Int {
 //        userData.medications.firstIndex(where: { $0.id == medication.id })!
 //    }
@@ -45,9 +44,9 @@ struct EssentailButtonView: View {
 }
 
 struct DosageView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        let frequency = medication.frequency
+        let frequency = medication.frequeny
         Section(header: Text("Dosage")
                     .font(.subheadline)
                     ) {
@@ -70,10 +69,10 @@ struct DosageView: View {
 }
 
 struct FrequencyView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         HStack(alignment: .top) {
-            let frequency = medication.frequency
+            let frequency = medication.frequeny
             let interval = medication.interval
             Text("Frequency:")
                 .font(.headline)
@@ -90,20 +89,20 @@ struct FrequencyView: View {
 }
 
 struct RemainingView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         HStack {
             Text("Remaining: ")
                 .font(.headline)
             Text("\(medication.quantity)")
-            Text("\(medication.kind)s")
+            Text("\(medication.kind!)s")
             Spacer()
         }
     }
 }
 
 struct RefillView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     static var formatter = DateFormatter()
     var body: some View {
         let refilled = medication.refilled
@@ -143,10 +142,7 @@ struct NotifyButtonOnOff: ButtonStyle {
 struct NotifyButtonView: View {
     @EnvironmentObject var userData: UserData
     @State private var n = true
-    var medication: Medication
-    var medicationindex: Int {
-        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    }
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         Toggle(isOn: $n) {
             Text("Notify")
@@ -156,7 +152,7 @@ struct NotifyButtonView: View {
 
 
 struct NotifyView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     @State internal var recipeName: String = ""
     @State internal var ingredient: String = ""
     @State internal var ingredients = [String]()
@@ -180,11 +176,7 @@ struct NotifyView: View {
 
 struct MedicationDetail: View {
     @EnvironmentObject var userData: UserData
-    var medication: Medication
-    
-    var medicationindex: Int {
-        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    }
+    var medication: FetchedResults<Medicine>.Element
     
     var body: some View {
         VStack() {
@@ -204,10 +196,10 @@ struct MedicationDetail: View {
 
 
 
-struct MedicationDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        let userData = UserData()
-        return MedicationDetail(medication: userData.medications[0])
-            .environmentObject(userData)
-    }
-}
+//struct MedicationDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        
+//        MedicationDetail().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}

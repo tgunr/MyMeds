@@ -72,9 +72,7 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+    static var previews: some View {        
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
