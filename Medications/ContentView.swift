@@ -9,17 +9,16 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Medicine>
     
     var body: some View {
         VStack {
             List {
                 ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    Text("Start at \(item.start!, formatter: itemFormatter)")
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -35,8 +34,8 @@ struct ContentView: View {
     
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Medicine(context: viewContext)
+            newItem.start = Date()
             
             do {
                 try viewContext.save()

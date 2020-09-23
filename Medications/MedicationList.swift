@@ -28,7 +28,7 @@ struct AddMedication: View {
 struct MedicationList: View {
     @EnvironmentObject private var userData: UserData
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: ProgrammingLanguage.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \ProgrammingLanguage.name, ascending: true)]) var languages: FetchedResults<ProgrammingLanguage>
+    @FetchRequest(entity: Medicine.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Medicine.name, ascending: true)]) var languages: FetchedResults<Medicine>
 
     @State var delegate: NavigationDelegate?
     @State private var addMode = false

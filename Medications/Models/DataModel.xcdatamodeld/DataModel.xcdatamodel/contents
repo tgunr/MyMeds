@@ -3,12 +3,24 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="ProgrammingLanguage" representedClassName="ProgrammingLanguage" syncable="YES" codeGenerationType="class">
-        <attribute name="creator" optional="YES" attributeType="String"/>
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="dosage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="essentail" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="frequeny" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imagename" optional="YES" attributeType="String"/>
+        <attribute name="interval" optional="YES" attributeType="String"/>
+        <attribute name="kind" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notify" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="notifylevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="refilled" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="ProgrammingLanguage" positionX="-63" positionY="-18" width="128" height="59"/>
         <element name="Item" positionX="-54" positionY="9" width="128" height="44"/>
+        <element name="Medicine" positionX="-63" positionY="-18" width="128" height="239"/>
     </elements>
 </model>
