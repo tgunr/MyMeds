@@ -13,7 +13,7 @@ struct TopView: View {
 //        CircleImage(image: medication.image)
 //            .padding(.top)
         HStack() {
-            Text(verbatim: medication.name!)
+            Text(verbatim: medication.name ?? "name")
                 .font(.title)
             EssentailButtonView(medication: medication)
             Spacer()
@@ -51,7 +51,7 @@ struct DosageView: View {
                     ) {
         HStack(alignment: .top) {
             let dose = medication.dosage
-            let dosageString = "\(dose) \(medication.kind)"
+            let dosageString = "\(dose) \(medication.kind ?? "kind")"
             Text(dosageString)
                 .font(.subheadline)
             if frequency == 1 {

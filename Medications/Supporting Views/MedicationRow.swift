@@ -12,10 +12,10 @@ struct MedicationRow: View {
 
     var body: some View {
         HStack {
-            Image(medication.imagename!)
+            Image(medication.imagename ?? "pill")
                 .resizable()
                 .frame(width: 50, height: 50)
-            Text(medication.name!)
+            Text(medication.name ?? "Medication")
             Spacer()
 
             if medication.essentail {
