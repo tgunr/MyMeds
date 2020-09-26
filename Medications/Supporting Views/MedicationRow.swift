@@ -36,3 +36,15 @@ struct MedicationRow: View {
 //        .previewLayout(.fixed(width: 300, height: 70))
 //    }
 //}
+
+//struct MedicationRow_Previews: PreviewProvider {
+//    @FetchRequest(
+//        sortDescriptors: [],
+//        animation: .default)
+//    private var medications: FetchedResults<Medicine>
+//    var previews: some View {
+//        var med = medications.first
+//        MedicationRow(medication: medications.first!)
+//        return Text("")
+//    }
+//}
