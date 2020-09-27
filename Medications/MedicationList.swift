@@ -21,15 +21,6 @@ struct MedicationListToolbar: View {
                     Text("Delete All")
                 })
                 Text("                                         ")
-                //                NavigationLink(destination: MedicationDetail(medication: addItem())) {
-                //                    Image(systemName: "plus")
-                //                        .resizable()
-                //                        .padding(6)
-                //                        .frame(width: 24, height: 24)
-                //                        .background(Color.blue)
-                //                        .clipShape(Circle())
-                //                        .foregroundColor(.white)
-                //                }
             }
         }
     }
@@ -61,8 +52,8 @@ struct MedicationList: View {
     var body: some View {
         NavigationView {
             VStack {
-                //                MedicationListToolbar(medications: medications)
                 List {
+                    Text("Count: \(medications.count)")
                     Toggle(isOn: $userData.showEssentailOnly) {
                         Text("Show Essential Only")
                     }
@@ -87,7 +78,7 @@ struct MedicationList: View {
                     EditButton() }
                 ToolbarItem( placement: .navigationBarLeading, content: {
                     Button(action: {
-                        medications.forEach(viewContext.delete)
+                        deleteAll(medications)
                     }, label: {
                         Text("Delete")
                     })
@@ -104,18 +95,16 @@ struct MedicationList: View {
         }
     }
     
-    private func reportSave()
-    {
-        NavigationLink(destination: MedicationDetail(medication: addItem())) {
-            
+    func deleteAll(_ medications: FetchedResults<Medicine>) {
+        let context = self.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DataModel")
+        fetchRequest.includesPropertyValues = false // Only fetch the managedObjectID (not the full object structure)
+        //        if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil)
+        for result in medications {
+            context.delete(result)
         }
-        
     }
-    
-    private func reportCancel()
-    {
-    }
-    
+
     private func addItem() -> Medicine {
         withAnimation {
             let med = Medicine(context: viewContext)
@@ -148,7 +137,9 @@ struct MedicationList: View {
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { medications[$0] }.forEach(viewContext.delete)
+            offsets.map {
+                medications[$0]
+            }.forEach(viewContext.delete)
             
             do {
                 try viewContext.save()

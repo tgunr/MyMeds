@@ -13,9 +13,9 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
+        for x in 0..<10 {
             let med = Medicine(context: viewContext)
-            med.name = "Medication"
+            med.name = "Medication \(x)"
             med.start = Date()
             med.category = "pain"
             med.dosage = 1
@@ -40,6 +40,33 @@ struct PersistenceController {
         return result
     }()
 
+    static var preview1: Medicine = {
+        let result = PersistenceController(inMemory: true)
+        let viewContext = result.container.viewContext
+        let med = Medicine(context: viewContext)
+        med.name = "Medication 1"
+        med.start = Date()
+        med.category = "pain"
+        med.dosage = 1
+        med.essentail = true
+        med.frequeny = 24
+        med.id = UUID()
+        med.imagename = "pill"
+        med.interval = "daily"
+        med.refilled = Date()
+        med.quantity = 60
+        med.notify = true
+        med.notifylevel = 10
+        do {
+            try viewContext.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        return med
+    }()
     let container: NSPersistentCloudKitContainer
 
     init(inMemory: Bool = false) {

@@ -11,6 +11,7 @@
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		75638DC5251A9DD40030FE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC4251A9DD40030FE87 /* ContentView.swift */; };
+		75967AB72520D49800B542EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75967AB62520D49800B542EC /* DetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
 		B739486A229F194000C47603 /* MedicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394869229F194000C47603 /* MedicationDetail.swift */; };
@@ -45,10 +46,10 @@
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		75967AB62520D49800B542EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/percocet.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
 		B7394862229F194000C47603 /* MyMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7394865229F194000C47603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7394867229F194000C47603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B7394869229F194000C47603 /* MedicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationDetail.swift; sourceTree = "<group>"; };
 		B739486B229F194200C47603 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				B739487E229F282200C47603 /* Models */,
-				B7394865229F194000C47603 /* AppDelegate.swift */,
 				75638DC1251A9D950030FE87 /* Persistence.swift */,
 				75638DC4251A9DD40030FE87 /* ContentView.swift */,
 				B7394867229F194000C47603 /* SceneDelegate.swift */,
@@ -123,6 +123,7 @@
 				B7394873229F194200C47603 /* Info.plist */,
 				B739486D229F194200C47603 /* Preview Content */,
 				7510CAB22518EC74001028D1 /* WelcomeView.swift */,
+				75967AB62520D49800B542EC /* DetailView.swift */,
 			);
 			path = Medications;
 			sourceTree = "<group>";
@@ -268,6 +269,7 @@
 				B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */,
 				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				75638DC2251A9D950030FE87 /* Persistence.swift in Sources */,
+				75967AB72520D49800B542EC /* DetailView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
 				75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */,

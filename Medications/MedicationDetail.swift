@@ -10,8 +10,8 @@ import SwiftUI
 struct TopView: View {
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
-//        CircleImage(image: medication.image)
-//            .padding(.top)
+        //        CircleImage(image: medication.image)
+        //            .padding(.top)
         HStack() {
             Text(verbatim: medication.name ?? "name")
                 .font(.title)
@@ -23,9 +23,9 @@ struct TopView: View {
 
 struct EssentailButtonView: View {
     var medication: FetchedResults<Medicine>.Element
-//    var medicationindex: Int {
-//        userData.medications.firstIndex(where: { $0.id == medication.id })!
-//    }
+    //    var medicationindex: Int {
+    //        userData.medications.firstIndex(where: { $0.id == medication.id })!
+    //    }
     
     var body: some View {
         Button(action: {
@@ -48,22 +48,22 @@ struct DosageView: View {
         let frequency = medication.frequeny
         Section(header: Text("Dosage")
                     .font(.subheadline)
-                    ) {
-        HStack(alignment: .top) {
-            let dose = medication.dosage
-            let dosageString = "\(dose) \(medication.kind ?? "kind")"
-            Text(dosageString)
-                .font(.subheadline)
-            if frequency == 1 {
-                Text("Every Hour")
-            } else {
-                Text("Every \(frequency)")
-                
+        ) {
+            HStack(alignment: .top) {
+                let dose = medication.dosage
+                let dosageString = "\(dose) \(medication.kind ?? "kind")"
+                Text(dosageString)
+                    .font(.subheadline)
+                if frequency == 1 {
+                    Text("Every Hour")
+                } else {
+                    Text("Every \(frequency)")
+                    
+                }
+                Spacer()
             }
-            Spacer()
+            .padding(.top, 2.0)
         }
-        .padding(.top, 2.0)
-    }
     }
 }
 
@@ -123,11 +123,11 @@ struct RefillView: View {
 
 struct NotifyButtonOnOff: ButtonStyle {
     let onoff: Bool
-
+    
     init(_ switsh: Bool) {
         self.onoff = switsh
     }
-
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .frame(width: 110, height: 35, alignment: .center)
@@ -161,7 +161,7 @@ struct NotifyView: View {
             .fontWeight(.bold)
             .padding(.top)
         HStack {
-        Spacer()
+            Spacer()
         }
         Form {
             Section(header: Text("Notify at percentage left")) {
@@ -180,7 +180,6 @@ struct MedicationDetail: View {
         VStack() {
             VStack() {
                 TopView(medication: medication)
-                
                 DosageView(medication: medication)
                 FrequencyView(medication: medication)
                 RemainingView(medication: medication)
@@ -194,10 +193,13 @@ struct MedicationDetail: View {
 
 
 
-//struct MedicationDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        
-//        MedicationDetail().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+
+struct MedicationDetail_Previews: PreviewProvider {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    static var previews: some View {
+        let p = PersistenceController.preview1
+        MedicationDetail(medication:p)
+    }
+    
+}
