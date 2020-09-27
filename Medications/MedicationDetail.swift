@@ -7,12 +7,22 @@
 
 import SwiftUI
 
+extension Medicine {
+//    @NSManaged public var name: String?
+    public var wrappedName: String {
+        get{name ?? "NoName"}
+        set{name = newValue}
+    }
+}
+
 struct TopView: View {
-    var medication: FetchedResults<Medicine>.Element
+    @ObservedObject var medication: FetchedResults<Medicine>.Element
+
     var body: some View {
         //        CircleImage(image: medication.image)
         //            .padding(.top)
         HStack() {
+            TextField("Enter text", text: $medication.wrappedName)
             Text(verbatim: medication.name ?? "name")
                 .font(.title)
             EssentailButtonView(medication: medication)
@@ -199,7 +209,7 @@ struct MedicationDetail_Previews: PreviewProvider {
     
     static var previews: some View {
         let p = PersistenceController.preview1
-        MedicationDetail(medication:p)
+//        MedicationDetail(medication:p.container.)
     }
     
 }

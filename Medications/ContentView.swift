@@ -27,26 +27,6 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
                 .navigationBarTitle(Text("Meds"))
-//                .navigationBarItems(
-//                    leading:
-//                        HStack {
-//                            EditButton()
-//
-//                            Spacer()
-//                            let newItem = Medicine(context: viewContext)
-//                            let newView = MedicationDetail(medication: newItem)
-//                            NavigationLink(
-//                                destination: newView,
-//                                label: {
-//                                    Image(systemName: "plus")
-//                                        .resizable()
-//                                        .background(Color.blue)
-//                                        .frame(width: 24.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/24.0)
-//                                        .clipShape(Circle())
-//                                        .foregroundColor(.white)
-//                                })
-//                        })
-                
             }
         }
         .padding(.bottom)
@@ -106,6 +86,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {        
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview1.container.viewContext)
     }
 }

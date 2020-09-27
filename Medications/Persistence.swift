@@ -40,7 +40,7 @@ struct PersistenceController {
         return result
     }()
 
-    static var preview1: Medicine = {
+    static var preview1: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         let med = Medicine(context: viewContext)
@@ -65,7 +65,7 @@ struct PersistenceController {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
-        return med
+        return result
     }()
     let container: NSPersistentCloudKitContainer
 
