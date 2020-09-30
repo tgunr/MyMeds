@@ -6,6 +6,7 @@
  */
 
 import SwiftUI
+import CoreData
 
 extension Medicine {
 //    @NSManaged public var name: String?
@@ -206,10 +207,22 @@ struct MedicationDetail: View {
 
 struct MedicationDetail_Previews: PreviewProvider {
     @Environment(\.managedObjectContext) private var viewContext
-    
     static var previews: some View {
-        let p = PersistenceController.preview1
-//        MedicationDetail(medication:p.container.)
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let med = Medicine(context: moc)
+        med.name = "Med Preview"
+        return NavigationView {
+            MedicationDetail(medication: med)
+        }
+
+//        let context = PersistenceController.shared.container.viewContext
+//        let p = PersistenceController.shared.container.viewContext
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicine")
+//        request.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.start, ascending: false)]
+//        let documentTemplate = try! p.fetch(request).first as! Medicine
+//
+//
+//        return MedicationDetail(medication: documentTemplate)
     }
-    
+
 }
