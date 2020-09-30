@@ -24,10 +24,6 @@ struct MedicationListToolbar: View {
             }
         }
     }
-    
-    
-    
-    
 }
 
 struct SecondView: View {

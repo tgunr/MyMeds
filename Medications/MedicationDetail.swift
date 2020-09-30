@@ -20,8 +20,8 @@ struct TopView: View {
     @ObservedObject var medication: FetchedResults<Medicine>.Element
 
     var body: some View {
-        //        CircleImage(image: medication.image)
-        //            .padding(.top)
+        CircleImage(name: medication.imagename!)
+                    .padding(.top)
         HStack() {
             TextField("Enter text", text: $medication.wrappedName)
             Text(verbatim: medication.name ?? "name")
@@ -34,9 +34,6 @@ struct TopView: View {
 
 struct EssentailButtonView: View {
     var medication: FetchedResults<Medicine>.Element
-    //    var medicationindex: Int {
-    //        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    //    }
     
     var body: some View {
         Button(action: {
@@ -83,7 +80,7 @@ struct FrequencyView: View {
     var body: some View {
         HStack(alignment: .top) {
             let frequency = medication.frequeny
-            let interval = medication.interval
+//            let interval = medication.interval
             Text("Frequency:")
                 .font(.headline)
             if frequency == 1 {
@@ -202,9 +199,6 @@ struct MedicationDetail: View {
     }
 }
 
-
-
-
 struct MedicationDetail_Previews: PreviewProvider {
     @Environment(\.managedObjectContext) private var viewContext
     static var previews: some View {
@@ -214,15 +208,6 @@ struct MedicationDetail_Previews: PreviewProvider {
         return NavigationView {
             MedicationDetail(medication: med)
         }
-
-//        let context = PersistenceController.shared.container.viewContext
-//        let p = PersistenceController.shared.container.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Medicine")
-//        request.sortDescriptors = [NSSortDescriptor(keyPath: \Medicine.start, ascending: false)]
-//        let documentTemplate = try! p.fetch(request).first as! Medicine
-//
-//
-//        return MedicationDetail(medication: documentTemplate)
+        .preferredColorScheme(.dark)
     }
-
 }
