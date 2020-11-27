@@ -81,11 +81,11 @@ struct MedicationList: View {
                 })
                 ToolbarItem( placement: .automatic )
                 {
-                    Button(action: {
-                        addItem()
-                    }, label: {
+                    NavigationLink(
+                        destination: MedicationDetail(medication: addItem())
+                    ){
                         Image(systemName: "plus")
-                    })
+                    }
                 }
             }
         }
