@@ -19,7 +19,7 @@ struct PersistenceController {
             med.start = Date()
             med.category = "pain"
             med.dosage = 1
-            med.essentail = true
+            med.essential = true
             med.frequeny = 24
             med.id = UUID()
             med.imagename = "pill"
@@ -48,7 +48,7 @@ struct PersistenceController {
         med.start = Date()
         med.category = "pain"
         med.dosage = 1
-        med.essentail = true
+        med.essential = true
         med.frequeny = 24
         med.id = UUID()
         med.imagename = "pill"

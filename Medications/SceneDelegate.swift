@@ -39,15 +39,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            let controller = RootViewController().returnSwiftUIView(type: .medlist)
-//            window.rootViewController = controller
-            
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let content = ContentView().environment(\.managedObjectContext, context)
-//            let content = MedicationList().environment(\.managedObjectContext, context)
-//            let content = ContentView()
-//                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
-//            window.rootViewController = UIHostingController(rootView: content.environmentObject(UserData()))
+            let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let contentView = ContentView()
+                                .environment(\.managedObjectContext, managedObjectContext)
             window.rootViewController = UIHostingController(rootView: content)
             self.window = window
             window.makeKeyAndVisible()

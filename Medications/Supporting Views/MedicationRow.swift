@@ -15,7 +15,7 @@ struct MedicationRow: View {
         HStack(alignment: .center) {
             HStack {
                 Text(medication.name ?? "Medication")
-                if medication.essentail {
+                if medication.essential {
                     Image(systemName: "star.fill")
                         .imageScale(.medium)
                         .foregroundColor(.red)

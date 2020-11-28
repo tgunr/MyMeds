@@ -14,7 +14,7 @@ class Medication: Identifiable, Codable {
     fileprivate var imageName: String = ""
     var kind: String = ""
     var category: Category?
-    var essentail: Bool = false
+    var essential: Bool = false
     var dosage: Int = 0
     var frequency: Int = 0
     var interval: Interval?

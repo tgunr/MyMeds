@@ -26,20 +26,20 @@ struct TopView: View {
             TextField("Enter text", text: $medication.wrappedName)
             Text(verbatim: medication.name ?? "name")
                 .font(.title)
-            EssentailButtonView(medication: medication)
+            EssentialButtonView(medication: medication)
             Spacer()
         }
     }
 }
 
-struct EssentailButtonView: View {
+struct EssentialButtonView: View {
     var medication: FetchedResults<Medicine>.Element
     
     var body: some View {
         Button(action: {
-            medication.essentail.toggle()
+            medication.essential.toggle()
         }) {
-            if medication.essentail {
+            if medication.essential {
                 Image(systemName: "star.fill")
                     .foregroundColor(Color.yellow)
             } else {

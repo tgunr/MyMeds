@@ -50,11 +50,11 @@ struct MedicationList: View {
             VStack {
                 List {
                     Text("Count: \(medications.count)")
-                    Toggle(isOn: $userData.showEssentailOnly) {
+                    Toggle(isOn: $userData.showEssentialOnly) {
                         Text("Show Essential Only")
                     }
                     ForEach(medications) { medication in
-                        if !self.userData.showEssentailOnly || medication.essentail {
+                        if !self.userData.showEssentialOnly || medication.essential {
                             NavigationLink(
                                 destination: MedicationDetail(medication: medication)
                                     .environmentObject(self.userData)
@@ -108,7 +108,7 @@ struct MedicationList: View {
             med.start = Date()
             med.category = "pain"
             med.dosage = 1
-            med.essentail = true
+            med.essential = true
             med.frequeny = 24
             med.id = UUID()
             med.imagename = "pill"
