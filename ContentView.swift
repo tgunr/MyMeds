@@ -9,34 +9,46 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(
         sortDescriptors: [],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Medicine>
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        NavigationView {
+            VStack {
+                Text("Count: \(items.count)")
+                List {
+                    ForEach(items) { item in
+                        NavigationLink(destination: MedicationDetail(medication: item)) {
+                            Text("\(item.name ?? "Name")")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            HStack {
-                EditButton()
-                Spacer()
-                Button(action: addItem, label: {
-                    Text("Add")
-                })
+                .navigationBarTitle(Text("Meds"))
             }
         }
+        .padding(.bottom)
     }
     
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let med = Medicine(context: viewContext)
+            med.name = "Medication"
+            med.start = Date()
+            med.category = "pain"
+            med.dosage = 1
+            med.essential = true
+            med.frequeny = 24
+            med.id = UUID()
+            med.imagename = "pill"
+            med.interval = "daily"
+            med.kind = "pill"
+            med.refilled = Date()
+            med.quantity = 60
+            med.notify = true
+            med.notifylevel = 10
             
             do {
                 try viewContext.save()
@@ -73,9 +85,7 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    static var previews: some View {        
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview1.container.viewContext)
     }
 }

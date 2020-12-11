@@ -1,38 +1,40 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A single row to be displayed in a list of medications.
-*/
+ See LICENSE folder for this sample’s licensing information.
+ 
+ Abstract:
+ A single row to be displayed in a list of medications.
+ */
 
 import SwiftUI
+import CoreData
 
 struct MedicationRow: View {
-    var medication: Medication
-
+    var medication: FetchedResults<Medicine>.Element
+    
     var body: some View {
-        HStack {
-            medication.image
-                .resizable()
-                .frame(width: 50, height: 50)
-            Text(medication.name)
-            Spacer()
-
-            if medication.essentail {
-                Image(systemName: "star.fill")
-                    .imageScale(.medium)
-                    .foregroundColor(.yellow)
+        HStack(alignment: .center) {
+            HStack {
+                Text(medication.name ?? "Medication")
+                if medication.essential {
+                    Image(systemName: "star.fill")
+                        .imageScale(.medium)
+                        .foregroundColor(.red)
+                } else {
+                    Image(systemName: "star")
+                }
             }
         }
+        
     }
 }
 
 struct MedicationRow_Previews: PreviewProvider {
+    @Environment(\.managedObjectContext) private var viewContext
     static var previews: some View {
-        Group {
-            MedicationRow(medication: medicationData[0])
-            MedicationRow(medication: medicationData[1])
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let med = Medicine(context: moc)
+        med.name = "Med Preview"
+        return  MedicationRow(medication: med)
     }
 }
+

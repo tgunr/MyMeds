@@ -9,6 +9,5 @@ import Combine
 import SwiftUI
 
 final class UserData: ObservableObject {
-    @Published var showEssentailOnly = false
-    @Published var medications = medicationData
+    @Published var showEssentialOnly = false
 }

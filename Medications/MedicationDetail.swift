@@ -6,34 +6,40 @@
  */
 
 import SwiftUI
+import CoreData
+
+extension Medicine {
+//    @NSManaged public var name: String?
+    public var wrappedName: String {
+        get{name ?? "NoName"}
+        set{name = newValue}
+    }
+}
 
 struct TopView: View {
-    @EnvironmentObject var userData: UserData
-    var medication: Medication
+    @ObservedObject var medication: FetchedResults<Medicine>.Element
+
     var body: some View {
-        CircleImage(image: medication.image)
-            .padding(.top)
+        CircleImage(name: medication.imagename!)
+                    .padding(.top)
         HStack() {
-            Text(medication.name)
+            TextField("Enter text", text: $medication.wrappedName)
+            Text(verbatim: medication.name ?? "name")
                 .font(.title)
-            EssentailButtonView(medication: medication).environmentObject(self.userData)
+            EssentialButtonView(medication: medication)
             Spacer()
         }
     }
 }
 
-struct EssentailButtonView: View {
-    @EnvironmentObject var userData: UserData
-    var medication: Medication
-//    var medicationindex: Int {
-//        userData.medications.firstIndex(where: { $0.id == medication.id })!
-//    }
+struct EssentialButtonView: View {
+    var medication: FetchedResults<Medicine>.Element
     
     var body: some View {
         Button(action: {
-            medication.essentail.toggle()
+            medication.essential.toggle()
         }) {
-            if medication.essentail {
+            if medication.essential {
                 Image(systemName: "star.fill")
                     .foregroundColor(Color.yellow)
             } else {
@@ -45,36 +51,36 @@ struct EssentailButtonView: View {
 }
 
 struct DosageView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        let frequency = medication.frequency
+        let frequency = medication.frequeny
         Section(header: Text("Dosage")
                     .font(.subheadline)
-                    ) {
-        HStack(alignment: .top) {
-            let dose = medication.dosage
-            let dosageString = "\(dose) \(medication.kind)"
-            Text(dosageString)
-                .font(.subheadline)
-            if frequency == 1 {
-                Text("Every Hour")
-            } else {
-                Text("Every \(frequency)")
-                
+        ) {
+            HStack(alignment: .top) {
+                let dose = medication.dosage
+                let dosageString = "\(dose) \(medication.kind ?? "kind")"
+                Text(dosageString)
+                    .font(.subheadline)
+                if frequency == 1 {
+                    Text("Every Hour")
+                } else {
+                    Text("Every \(frequency)")
+                    
+                }
+                Spacer()
             }
-            Spacer()
+            .padding(.top, 2.0)
         }
-        .padding(.top, 2.0)
-    }
     }
 }
 
 struct FrequencyView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         HStack(alignment: .top) {
-            let frequency = medication.frequency
-            let interval = medication.interval
+            let frequency = medication.frequeny
+//            let interval = medication.interval
             Text("Frequency:")
                 .font(.headline)
             if frequency == 1 {
@@ -90,20 +96,20 @@ struct FrequencyView: View {
 }
 
 struct RemainingView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         HStack {
             Text("Remaining: ")
                 .font(.headline)
             Text("\(medication.quantity)")
-            Text("\(medication.kind)s")
+            Text("\(medication.kind ?? "kind")s")
             Spacer()
         }
     }
 }
 
 struct RefillView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     static var formatter = DateFormatter()
     var body: some View {
         let refilled = medication.refilled
@@ -125,11 +131,11 @@ struct RefillView: View {
 
 struct NotifyButtonOnOff: ButtonStyle {
     let onoff: Bool
-
+    
     init(_ switsh: Bool) {
         self.onoff = switsh
     }
-
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .frame(width: 110, height: 35, alignment: .center)
@@ -143,10 +149,7 @@ struct NotifyButtonOnOff: ButtonStyle {
 struct NotifyButtonView: View {
     @EnvironmentObject var userData: UserData
     @State private var n = true
-    var medication: Medication
-    var medicationindex: Int {
-        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    }
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         Toggle(isOn: $n) {
             Text("Notify")
@@ -156,7 +159,7 @@ struct NotifyButtonView: View {
 
 
 struct NotifyView: View {
-    var medication: Medication
+    var medication: FetchedResults<Medicine>.Element
     @State internal var recipeName: String = ""
     @State internal var ingredient: String = ""
     @State internal var ingredients = [String]()
@@ -166,7 +169,7 @@ struct NotifyView: View {
             .fontWeight(.bold)
             .padding(.top)
         HStack {
-        Spacer()
+            Spacer()
         }
         Form {
             Section(header: Text("Notify at percentage left")) {
@@ -179,18 +182,12 @@ struct NotifyView: View {
 }
 
 struct MedicationDetail: View {
-    @EnvironmentObject var userData: UserData
-    var medication: Medication
-    
-    var medicationindex: Int {
-        userData.medications.firstIndex(where: { $0.id == medication.id })!
-    }
+    var medication: FetchedResults<Medicine>.Element
     
     var body: some View {
         VStack() {
             VStack() {
                 TopView(medication: medication)
-                
                 DosageView(medication: medication)
                 FrequencyView(medication: medication)
                 RemainingView(medication: medication)
@@ -202,12 +199,16 @@ struct MedicationDetail: View {
     }
 }
 
-
-
 struct MedicationDetail_Previews: PreviewProvider {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     static var previews: some View {
-        let userData = UserData()
-        return MedicationDetail(medication: userData.medications[0])
-            .environmentObject(userData)
+        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let med = Medicine(context: moc)
+        med.name = "Med Preview"
+        return NavigationView {
+            MedicationDetail(medication: med)
+        }
+        .preferredColorScheme(.dark)
     }
 }

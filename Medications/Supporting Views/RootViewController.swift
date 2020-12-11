@@ -6,11 +6,15 @@
 //  Copyright © 2020 Apple. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
+
+enum RootViews {
+    case medlist, welcome // ,meddetail
+}
 
 extension UIViewController {
-
-func topMostViewController() -> UIViewController {
+    
+    func topMostViewController() -> UIViewController {
         if let presented = self.presentedViewController {
             return presented.topMostViewController()
         }
@@ -31,28 +35,39 @@ extension UIApplication {
 }
 
 class RootViewController: UIViewController, NavigationDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         self.moveTo(view: .welcome) //Which can always be changed
     }
-
+    
     //The Moving Function
     func moveTo(view: RootViews, presentation: UIModalPresentationStyle = .fullScreen, transition: UIModalTransitionStyle = .crossDissolve) {
         let newScene = self.returnSwiftUIView(type: view)
         newScene.modalPresentationStyle = presentation
         newScene.modalTransitionStyle = transition
-
+        
         //Top View Controller
         let top = self.topMostViewController()
-
+        
         top.present(newScene, animated: true)
+    }
+    
+    //Swift View switch. Optional, but my Xcode was not happy when I tried to return a UIHostingController in line.
+    func returnSwiftUIView(type: RootViews) -> UIViewController {
+        switch type {
+            case .welcome:
+                return UIHostingController(rootView: WelcomeView(delegate: self))
+            case .medlist:
+                return UIHostingController(rootView: MedicationList(delegate: self).environmentObject(PersistentStore.shared))
+            //            case .meddetail:
+            //                return UIHostingController(rootView: MedicationDetail(userData: AppDelegate.shared.userData, medication: <#T##Medication#>)
+        }
     }
 }
 
@@ -64,11 +79,11 @@ extension NavigationDelegate {
     func moveTo(view: RootViews) {
         self.moveTo(view: view, presentation: .fullScreen, transition: .crossDissolve)
     }
-
+    
     func moveTo(view: RootViews, presentation: UIModalPresentationStyle) {
         self.moveTo(view: view, presentation: presentation, transition: .crossDissolve)
     }
-
+    
     func moveTo(view: RootViews, transition: UIModalTransitionStyle) {
         self.moveTo(view: view, presentation: .fullScreen, transition: transition)
     }
