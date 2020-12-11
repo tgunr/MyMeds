@@ -10,7 +10,8 @@
 		7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510CAB22518EC74001028D1 /* WelcomeView.swift */; };
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
-		75638DC5251A9DD40030FE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC4251A9DD40030FE87 /* ContentView.swift */; };
+		757C1E9D257A6EE2001B001D /* AddMedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1E9C257A6EE2001B001D /* AddMedView.swift */; };
+		757C1EAB258390BA001B001D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D4C1125193AC4002A0E71 /* RootViewController.swift */; };
 		75967AB72520D49800B542EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75967AB62520D49800B542EC /* DetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
@@ -45,6 +46,8 @@
 		7536C922251BDAE600F778F2 /* MyMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsApp.swift; sourceTree = "<group>"; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		757C1E9C257A6EE2001B001D /* AddMedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddMedView.swift; path = Medications/AddMedView.swift; sourceTree = "<group>"; };
+		757C1E9F257E4EDC001B001D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75967AB62520D49800B542EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -91,8 +94,14 @@
 		B7394859229F194000C47603 = {
 			isa = PBXGroup;
 			children = (
-				7536C921251BDAD700F778F2 /* MyMeds.entitlements */,
 				7536C922251BDAE600F778F2 /* MyMedsApp.swift */,
+				757C1E9F257E4EDC001B001D /* AppDelegate.swift */,
+				B7394867229F194000C47603 /* SceneDelegate.swift */,
+				75638DC4251A9DD40030FE87 /* ContentView.swift */,
+				7510CAB22518EC74001028D1 /* WelcomeView.swift */,
+				75967AB62520D49800B542EC /* DetailView.swift */,
+				757C1E9C257A6EE2001B001D /* AddMedView.swift */,
+				7536C921251BDAD700F778F2 /* MyMeds.entitlements */,
 				B7394864229F194000C47603 /* Medications */,
 				B7394863229F194000C47603 /* Products */,
 			);
@@ -111,8 +120,6 @@
 			children = (
 				B739487E229F282200C47603 /* Models */,
 				75638DC1251A9D950030FE87 /* Persistence.swift */,
-				75638DC4251A9DD40030FE87 /* ContentView.swift */,
-				B7394867229F194000C47603 /* SceneDelegate.swift */,
 				B73948A0229F2E1F00C47603 /* MedicationList.swift */,
 				B739489E229F2D9700C47603 /* MedicationRow.swift */,
 				B7394869229F194000C47603 /* MedicationDetail.swift */,
@@ -122,8 +129,6 @@
 				B7394870229F194200C47603 /* LaunchScreen.storyboard */,
 				B7394873229F194200C47603 /* Info.plist */,
 				B739486D229F194200C47603 /* Preview Content */,
-				7510CAB22518EC74001028D1 /* WelcomeView.swift */,
-				75967AB62520D49800B542EC /* DetailView.swift */,
 			);
 			path = Medications;
 			sourceTree = "<group>";
@@ -262,13 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757C1EAB258390BA001B001D /* RootViewController.swift in Sources */,
 				7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */,
 				B7394882229F28B900C47603 /* Data.swift in Sources */,
-				75638DC5251A9DD40030FE87 /* ContentView.swift in Sources */,
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,
 				B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */,
 				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				75638DC2251A9D950030FE87 /* Persistence.swift in Sources */,
+				757C1E9D257A6EE2001B001D /* AddMedView.swift in Sources */,
 				75967AB72520D49800B542EC /* DetailView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
@@ -425,8 +431,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.mymeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -449,8 +455,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.mymeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};

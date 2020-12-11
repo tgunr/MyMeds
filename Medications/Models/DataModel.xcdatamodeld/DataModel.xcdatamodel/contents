@@ -26,12 +26,12 @@
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="refilled" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="dates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dates"/>
+        <relationship name="dates" maxCount="1" deletionRule="Nullify" destinationEntity="Dates"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History"/>
     </entity>
     <elements>
-        <element name="Medicine" positionX="-4929.092895507812" positionY="-1258.289855957031" width="128" height="283"/>
         <element name="Dates" positionX="-4637.763977050781" positionY="-1257.569854736328" width="128" height="118"/>
         <element name="History" positionX="-4608.794250488281" positionY="-1012.941345214844" width="128" height="59"/>
+        <element name="Medicine" positionX="-4929.092895507812" positionY="-1258.289855957031" width="128" height="269"/>
     </elements>
 </model>

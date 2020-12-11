@@ -10,5 +10,4 @@ import SwiftUI
 
 final class UserData: ObservableObject {
     @Published var showEssentialOnly = false
-//    @Published var medications = medicationData
 }

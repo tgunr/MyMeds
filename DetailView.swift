@@ -16,8 +16,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let persistenceController = PersistenceController.shared
-
-        DetailView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        DetailView()
     }
 }

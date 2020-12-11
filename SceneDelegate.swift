@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-enum RootViews {
-    case medlist, welcome // ,meddetail
-}
-
-
-extension RootViewController {
-
-    //Swift View switch. Optional, but my Xcode was not happy when I tried to return a UIHostingController in line.
-    func returnSwiftUIView(type: RootViews) -> UIViewController {
-        switch type {
-            case .welcome:
-                return UIHostingController(rootView: WelcomeView(delegate: self))
-            case .medlist:
-                return UIHostingController(rootView: MedicationList(delegate: self).environmentObject(AppDelegate.shared.userData))
-            //            case .meddetail:
-            //                return UIHostingController(rootView: MedicationDetail(userData: AppDelegate.shared.userData, medication: <#T##Medication#>)
-        }
-    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -39,10 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let contentView = ContentView()
-                                .environment(\.managedObjectContext, managedObjectContext)
-            window.rootViewController = UIHostingController(rootView: content)
+            let moc = PersistentStore.shared.context
+//            let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let contentView = RootViewController()
+                                .environment(\.managedObjectContext, moc)
+            window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -74,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        PersistentStore.shared.save()
     }
 
 }

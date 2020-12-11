@@ -6,7 +6,16 @@ The model for an individual medication.
 */
 
 import SwiftUI
-import CoreLocation
+import CoreData
+
+extension Medicine  {
+    static func allMedicinesFetchRequest() -> NSFetchRequest<Medicine> {
+        let request: NSFetchRequest<Medicine> = Medicine.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        return request
+    }
+}
+
 
 class Medication: Identifiable, Codable {
     var id: UUID = UUID()

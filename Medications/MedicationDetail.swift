@@ -201,6 +201,7 @@ struct MedicationDetail: View {
 
 struct MedicationDetail_Previews: PreviewProvider {
     @Environment(\.managedObjectContext) private var viewContext
+    
     static var previews: some View {
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let med = Medicine(context: moc)

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    var delegate: RootViewController
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -16,6 +17,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(delegate: RootViewController())
     }
 }
