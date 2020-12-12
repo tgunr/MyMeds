@@ -11,7 +11,6 @@
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		757C1E9D257A6EE2001B001D /* AddMedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1E9C257A6EE2001B001D /* AddMedView.swift */; };
-		757C1EAB258390BA001B001D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D4C1125193AC4002A0E71 /* RootViewController.swift */; };
 		75967AB72520D49800B542EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75967AB62520D49800B542EC /* DetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
@@ -263,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757C1EAB258390BA001B001D /* RootViewController.swift in Sources */,
 				7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */,
 				B7394882229F28B900C47603 /* Data.swift in Sources */,
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,

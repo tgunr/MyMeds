@@ -36,7 +36,6 @@ struct SecondView: View {
 }
 
 struct MedicationList: View {
-    var delegate: RootViewController
     @EnvironmentObject private var userData: UserData
     @Environment(\.managedObjectContext) private var managedObjectContext
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
@@ -63,20 +62,21 @@ struct MedicationList: View {
                     }
                     .onDelete(perform: deleteItems)
                 }
+                .navigationTitle("Medications ")
+                .navigationBarTitle("Medications" ,displayMode: .automatic)
                 Spacer()
             }
-            .navigationTitle("Medications ")
-            .navigationBarTitle("Medications" ,displayMode: .automatic)
             .toolbar {
                 ToolbarItem( placement: .navigationBarLeading ) {
                     EditButton() }
-                ToolbarItem( placement: .navigationBarLeading, content: {
-                    Button(action: {
-                        deleteAll(medications)
-                    }, label: {
-                        Text("Delete")
-                    })
-                })
+                // Adding this item causes 2 instances to be created on Mac! Why?
+//                ToolbarItem( placement: .navigationBarLeading, content: {
+//                    Button(action: {
+//                        deleteAll(medications)
+//                    }, label: {
+//                        Text("Delete")
+//                    })
+//                })
                 ToolbarItem( placement: .automatic )
                 {
                     NavigationLink(
@@ -124,7 +124,7 @@ struct MedicationsList_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            MedicationList(delegate: RootViewController())
+            MedicationList()
                 .preferredColorScheme(.dark)
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
                 .environmentObject(UserData())
