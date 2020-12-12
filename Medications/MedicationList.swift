@@ -39,7 +39,7 @@ struct MedicationList: View {
     @EnvironmentObject private var userData: UserData
     @Environment(\.managedObjectContext) private var managedObjectContext
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
-    
+
     @State private var addMode = false
     
     var body: some View {
@@ -51,14 +51,14 @@ struct MedicationList: View {
                         Text("Show Essential Only")
                     }
                     ForEach(medications) { medication in
-                        if !self.userData.showEssentialOnly || medication.essential {
+//                        if !self.userData.showEssentialOnly || medication.essential {
                             NavigationLink(
                                 destination: MedicationDetail(medication: medication)
-                                    .environmentObject(self.userData)
+//                                    .environmentObject(self.userData)
                             ) {
                                 MedicationRow(medication: medication)
                             }
-                        }
+//                        }
                     }
                     .onDelete(perform: deleteItems)
                 }
@@ -80,7 +80,7 @@ struct MedicationList: View {
                 ToolbarItem( placement: .automatic )
                 {
                     NavigationLink(
-                        destination: AddMedView()
+                        destination: AddMedication()
                     ){
                         Image(systemName: "plus")
                     }

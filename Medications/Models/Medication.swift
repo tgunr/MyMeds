@@ -19,8 +19,8 @@ extension Medicine  {
 
 class Medication: Identifiable, Codable {
     var id: UUID = UUID()
-    var name: String = ""
-    fileprivate var imageName: String = ""
+    var name: String = "Name"
+    fileprivate var imageName: String = "pill"
     var kind: String = ""
     var category: Category?
     var essential: Bool = false

@@ -60,6 +60,46 @@ class PersistentStore: ObservableObject {
             }
         }
     }
+    
+    func newMed() -> Medicine {
+        let med = Medicine(context: persistentContainer.viewContext)
+            med.name = "Medication"
+            med.start = Date()
+            med.category = "pain"
+            med.dosage = 1
+            med.essential = true
+            med.frequeny = 24
+            med.id = UUID()
+            med.imagename = "pill"
+            med.interval = "daily"
+            med.kind = "pill"
+            med.refilled = Date()
+            med.quantity = 60
+            med.notify = true
+            med.notifylevel = 10
+            
+            return med
+        }
+
+    func addMed(newMed: Medication) {
+        let med = Medicine(context: persistentContainer.viewContext)
+        med.name = newMed.name
+        med.start = newMed.refilled
+//        med.category = newMed.category
+//        med.dosage = newMed.dosage
+        med.essential = newMed.essential
+//        med.frequeny = newMed.frequency
+        med.id = UUID()
+        med.imagename = "pill"
+//        med.interval = newMed.interval
+        med.kind = newMed.kind
+//        med.refilled = newMed.refilled
+//        med.quantity = newMed.quantity
+        med.notify = newMed.notify
+//        med.notifylevel = newMed.notifyLevel
+        }
+
+    
 }
 
 struct PersistenceController {

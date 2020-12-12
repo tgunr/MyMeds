@@ -160,10 +160,8 @@ struct NotifyButtonView: View {
 
 struct NotifyView: View {
     var medication: FetchedResults<Medicine>.Element
-    @State internal var recipeName: String = ""
-    @State internal var ingredient: String = ""
-    @State internal var ingredients = [String]()
     var body: some View {
+        let level = medication.notifylevel
         Text("Notification")
             .font(.title)
             .fontWeight(.bold)
@@ -173,7 +171,7 @@ struct NotifyView: View {
         }
         Form {
             Section(header: Text("Notify at percentage left")) {
-                TextField("enter percentage", text: $recipeName)
+                Text("\(level)")
             }
             NotifyButtonView(medication: medication)
         }

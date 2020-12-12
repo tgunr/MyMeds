@@ -11,6 +11,8 @@
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		757C1E9D257A6EE2001B001D /* AddMedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1E9C257A6EE2001B001D /* AddMedView.swift */; };
+		757C1EC32585177B001B001D /* AddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1EC22585177B001B001D /* AddMedication.swift */; };
+		757C1EC825851DA2001B001D /* pill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 757C1EC725851DA2001B001D /* pill.jpg */; };
 		75967AB72520D49800B542EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75967AB62520D49800B542EC /* DetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
@@ -21,21 +23,9 @@
 		B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394879229F1B3F00C47603 /* CircleImage.swift */; };
 		B7394881229F28B900C47603 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739487F229F28B900C47603 /* Medication.swift */; };
 		B7394882229F28B900C47603 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394880229F28B900C47603 /* Data.swift */; };
-		B7394891229F292F00C47603 /* rainbowlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394884229F292D00C47603 /* rainbowlake.jpg */; };
-		B7394893229F292F00C47603 /* icybay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394886229F292E00C47603 /* icybay.jpg */; };
-		B7394894229F292F00C47603 /* lakemcdonald.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394887229F292E00C47603 /* lakemcdonald.jpg */; };
-		B7394895229F292F00C47603 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394888229F292E00C47603 /* turtlerock.jpg */; };
-		B7394896229F292F00C47603 /* umbagog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394889229F292E00C47603 /* umbagog.jpg */; };
-		B7394897229F292F00C47603 /* hiddenlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B739488A229F292E00C47603 /* hiddenlake.jpg */; };
-		B7394898229F292F00C47603 /* stmarylake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B739488B229F292E00C47603 /* stmarylake.jpg */; };
-		B7394899229F292F00C47603 /* twinlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B739488C229F292E00C47603 /* twinlake.jpg */; };
-		B739489A229F292F00C47603 /* silversalmoncreek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B739488D229F292E00C47603 /* silversalmoncreek.jpg */; };
 		B739489B229F292F00C47603 /* medData.json in Resources */ = {isa = PBXBuildFile; fileRef = B739488E229F292E00C47603 /* medData.json */; };
-		B739489C229F292F00C47603 /* chincoteague.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B739488F229F292F00C47603 /* chincoteague.jpg */; };
-		B739489D229F292F00C47603 /* chilkoottrail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7394890229F292F00C47603 /* chilkoottrail.jpg */; };
 		B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739489E229F2D9700C47603 /* MedicationRow.swift */; };
 		B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73948A0229F2E1F00C47603 /* MedicationList.swift */; };
-		B73948A3229F3E2200C47603 /* charleyrivers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B73948A2229F3E2200C47603 /* charleyrivers.jpg */; };
 		B7D2AAC5229F4D7C0061E5F5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2AAC4229F4D7C0061E5F5 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +36,8 @@
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		757C1E9C257A6EE2001B001D /* AddMedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddMedView.swift; path = Medications/AddMedView.swift; sourceTree = "<group>"; };
+		757C1EC22585177B001B001D /* AddMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedication.swift; sourceTree = "<group>"; };
+		757C1EC725851DA2001B001D /* pill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pill.jpg; path = Medications/Assets.xcassets/percocet.imageset/pill.jpg; sourceTree = SOURCE_ROOT; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75967AB62520D49800B542EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -59,21 +51,9 @@
 		B7394879229F1B3F00C47603 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		B739487F229F28B900C47603 /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		B7394880229F28B900C47603 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		B7394884229F292D00C47603 /* rainbowlake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbowlake.jpg; sourceTree = "<group>"; };
-		B7394886229F292E00C47603 /* icybay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icybay.jpg; sourceTree = "<group>"; };
-		B7394887229F292E00C47603 /* lakemcdonald.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lakemcdonald.jpg; sourceTree = "<group>"; };
-		B7394888229F292E00C47603 /* turtlerock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtlerock.jpg; sourceTree = "<group>"; };
-		B7394889229F292E00C47603 /* umbagog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = umbagog.jpg; sourceTree = "<group>"; };
-		B739488A229F292E00C47603 /* hiddenlake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hiddenlake.jpg; sourceTree = "<group>"; };
-		B739488B229F292E00C47603 /* stmarylake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stmarylake.jpg; sourceTree = "<group>"; };
-		B739488C229F292E00C47603 /* twinlake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twinlake.jpg; sourceTree = "<group>"; };
-		B739488D229F292E00C47603 /* silversalmoncreek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silversalmoncreek.jpg; sourceTree = "<group>"; };
 		B739488E229F292E00C47603 /* medData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medData.json; sourceTree = "<group>"; };
-		B739488F229F292F00C47603 /* chincoteague.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chincoteague.jpg; sourceTree = "<group>"; };
-		B7394890229F292F00C47603 /* chilkoottrail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chilkoottrail.jpg; sourceTree = "<group>"; };
 		B739489E229F2D9700C47603 /* MedicationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MedicationRow.swift; path = "Supporting Views/MedicationRow.swift"; sourceTree = "<group>"; };
 		B73948A0229F2E1F00C47603 /* MedicationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationList.swift; sourceTree = "<group>"; };
-		B73948A2229F3E2200C47603 /* charleyrivers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charleyrivers.jpg; sourceTree = "<group>"; };
 		B7D2AAC4229F4D7C0061E5F5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +97,7 @@
 				75638DC1251A9D950030FE87 /* Persistence.swift */,
 				B73948A0229F2E1F00C47603 /* MedicationList.swift */,
 				B739489E229F2D9700C47603 /* MedicationRow.swift */,
+				757C1EC22585177B001B001D /* AddMedication.swift */,
 				B7394869229F194000C47603 /* MedicationDetail.swift */,
 				B739487D229F1C0100C47603 /* Supporting Views */,
 				B7394883229F291A00C47603 /* Resources */,
@@ -160,19 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				B739488E229F292E00C47603 /* medData.json */,
+				757C1EC725851DA2001B001D /* pill.jpg */,
 				75FFD5CC25163F6B0081A351 /* percocet.jpg */,
-				B7394890229F292F00C47603 /* chilkoottrail.jpg */,
-				B739488F229F292F00C47603 /* chincoteague.jpg */,
-				B739488A229F292E00C47603 /* hiddenlake.jpg */,
-				B7394886229F292E00C47603 /* icybay.jpg */,
-				B7394887229F292E00C47603 /* lakemcdonald.jpg */,
-				B7394884229F292D00C47603 /* rainbowlake.jpg */,
-				B739488D229F292E00C47603 /* silversalmoncreek.jpg */,
-				B739488B229F292E00C47603 /* stmarylake.jpg */,
-				B7394888229F292E00C47603 /* turtlerock.jpg */,
-				B739488C229F292E00C47603 /* twinlake.jpg */,
-				B7394889229F292E00C47603 /* umbagog.jpg */,
-				B73948A2229F3E2200C47603 /* charleyrivers.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -235,23 +205,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B739489A229F292F00C47603 /* silversalmoncreek.jpg in Resources */,
-				B7394894229F292F00C47603 /* lakemcdonald.jpg in Resources */,
 				B7394872229F194200C47603 /* LaunchScreen.storyboard in Resources */,
-				B73948A3229F3E2200C47603 /* charleyrivers.jpg in Resources */,
-				B7394891229F292F00C47603 /* rainbowlake.jpg in Resources */,
 				B739486F229F194200C47603 /* Preview Assets.xcassets in Resources */,
-				B7394895229F292F00C47603 /* turtlerock.jpg in Resources */,
 				B739486C229F194200C47603 /* Assets.xcassets in Resources */,
-				B7394899229F292F00C47603 /* twinlake.jpg in Resources */,
-				B7394896229F292F00C47603 /* umbagog.jpg in Resources */,
-				B739489D229F292F00C47603 /* chilkoottrail.jpg in Resources */,
 				75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */,
-				B739489C229F292F00C47603 /* chincoteague.jpg in Resources */,
+				757C1EC825851DA2001B001D /* pill.jpg in Resources */,
 				B739489B229F292F00C47603 /* medData.json in Resources */,
-				B7394893229F292F00C47603 /* icybay.jpg in Resources */,
-				B7394897229F292F00C47603 /* hiddenlake.jpg in Resources */,
-				B7394898229F292F00C47603 /* stmarylake.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +231,7 @@
 				75967AB72520D49800B542EC /* DetailView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
+				757C1EC32585177B001B001D /* AddMedication.swift in Sources */,
 				75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */,
 				B7D2AAC5229F4D7C0061E5F5 /* UserData.swift in Sources */,
 				B7394881229F28B900C47603 /* Medication.swift in Sources */,
