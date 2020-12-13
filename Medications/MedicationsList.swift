@@ -1,14 +1,17 @@
-/*
- See LICENSE folder for this sample’s licensing information.
- 
- Abstract:
- A view showing a list of medications.
- */
+//
+//  MedicationsList.swift
+//  MyMeds
+//
+//  Created by Dave Carlton on 12/13/20.
+//  Copyright © 2020 Apple. All rights reserved.
+//
+//  Abstract:
+//  A view showing a list of medications in the database
 
 import SwiftUI
 import CoreData
 
-struct MedicationListToolbar: View {
+struct MedicationsListToolbar: View {
     var medications: FetchedResults<Medicine>
     @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
@@ -26,20 +29,11 @@ struct MedicationListToolbar: View {
     }
 }
 
-struct SecondView: View {
-    var body: some View {
-        Text("Hello, Second View!")
-            .font(.largeTitle)
-            .fontWeight(.medium)
-            .foregroundColor(Color.blue)
-    }
-}
-
-struct MedicationList: View {
+struct MedicationsList: View {
     @EnvironmentObject private var userData: UserData
     @Environment(\.managedObjectContext) private var managedObjectContext
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
-
+    
     @State var addMode = false
     
     var body: some View {
@@ -51,14 +45,14 @@ struct MedicationList: View {
                         Text("Show Essential Only")
                     }
                     ForEach(medications) { medication in
-//                        if !self.userData.showEssentialOnly || medication.essential {
-                            NavigationLink(
-                                destination: MedicationDetail(medication: medication)
-//                                    .environmentObject(self.userData)
-                            ) {
-                                MedicationRow(medication: medication)
-                            }
-//                        }
+                        //                        if !self.userData.showEssentialOnly || medication.essential {
+                        NavigationLink(
+                            destination: MedicationDetail(medication: medication)
+                            //                                    .environmentObject(self.userData)
+                        ) {
+                            MedicationRow(medication: medication)
+                        }
+                        //                        }
                     }
                     .onDelete(perform: deleteItems)
                 }
@@ -70,17 +64,18 @@ struct MedicationList: View {
                 ToolbarItem( placement: .navigationBarLeading ) {
                     EditButton() }
                 // Adding this item causes 2 instances to be created on Mac! Why?
-//                ToolbarItem( placement: .navigationBarLeading, content: {
-//                    Button(action: {
-//                        deleteAll(medications)
-//                    }, label: {
-//                        Text("Delete")
-//                    })
-//                })
+                //                ToolbarItem( placement: .navigationBarLeading, content: {
+                //                    Button(action: {
+                //                        deleteAll(medications)
+                //                    }, label: {
+                //                        Text("Delete")
+                //                    })
+                //                })
                 ToolbarItem( placement: .automatic )
                 {
                     NavigationLink(
-                        destination: AddMedication(isPresented: addMode)
+                        destination: AddMedication(isPresented: $addMode)
+                        
                     ){
                         Image(systemName: "plus")
                     }
@@ -115,16 +110,15 @@ struct MedicationList: View {
             }
         }
     }
+    
 }
 
-
-// invisible link inside NavigationView for add mode
 struct MedicationsList_Previews: PreviewProvider {
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
     
     static var previews: some View {
         Group {
-            MedicationList()
+            MedicationsList()
                 .preferredColorScheme(.dark)
                 .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
                 .environmentObject(UserData())

@@ -79,8 +79,10 @@ struct AddTopView: View {
 // When save button is selected, send the Medication to the PersistentStore
 
 struct AddMedication: View {
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var medInstance: Medication = Medication()
-    @State var isPresented: Bool
+    @Binding var isPresented: Bool
     
     var body: some View {
         NavigationView {
@@ -94,10 +96,12 @@ struct AddMedication: View {
             }
             .navigationTitle("New Medication")
             .navigationBarItems(leading: Button("Cancel") {
-                isPresented = false
+                self.isPresented = false
+//                self.presentationMode.wrappedValue.dismiss()
             }, trailing: Button("Save") {
                 PersistentStore.shared.addMed(medInstance)
-                isPresented = false
+                self.isPresented = false
+//                self.presentationMode.wrappedValue.dismiss()
             })
         }
     }
