@@ -12,7 +12,6 @@
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		757C1EC32585177B001B001D /* AddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1EC22585177B001B001D /* AddMedication.swift */; };
 		757C1EC825851DA2001B001D /* pill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 757C1EC725851DA2001B001D /* pill.jpg */; };
-		75967AB72520D49800B542EC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75967AB62520D49800B542EC /* DetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
 		B739486A229F194000C47603 /* MedicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394869229F194000C47603 /* MedicationDetail.swift */; };
@@ -37,7 +36,6 @@
 		757C1EC22585177B001B001D /* AddMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedication.swift; sourceTree = "<group>"; };
 		757C1EC725851DA2001B001D /* pill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pill.jpg; path = Medications/Assets.xcassets/pill.jpg; sourceTree = SOURCE_ROOT; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		75967AB62520D49800B542EC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/percocet.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
 		B7394862229F194000C47603 /* MyMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +70,6 @@
 				7536C922251BDAE600F778F2 /* MyMedsApp.swift */,
 				75638DC4251A9DD40030FE87 /* ContentView.swift */,
 				7510CAB22518EC74001028D1 /* WelcomeView.swift */,
-				75967AB62520D49800B542EC /* DetailView.swift */,
 				7536C921251BDAD700F778F2 /* MyMeds.entitlements */,
 				B7394864229F194000C47603 /* Medications */,
 				B7394863229F194000C47603 /* Products */,
@@ -224,7 +221,6 @@
 				B73948A1229F2E1F00C47603 /* MedicationList.swift in Sources */,
 				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				75638DC2251A9D950030FE87 /* Persistence.swift in Sources */,
-				75967AB72520D49800B542EC /* DetailView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
 				757C1EC32585177B001B001D /* AddMedication.swift in Sources */,
