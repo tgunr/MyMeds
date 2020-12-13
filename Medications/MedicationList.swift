@@ -40,7 +40,7 @@ struct MedicationList: View {
     @Environment(\.managedObjectContext) private var managedObjectContext
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
 
-    @State private var addMode = false
+    @State var addMode = false
     
     var body: some View {
         NavigationView {
@@ -80,7 +80,7 @@ struct MedicationList: View {
                 ToolbarItem( placement: .automatic )
                 {
                     NavigationLink(
-                        destination: AddMedication()
+                        destination: AddMedication(isPresented: addMode)
                     ){
                         Image(systemName: "plus")
                     }
