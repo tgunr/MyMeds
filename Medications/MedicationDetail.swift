@@ -1,9 +1,11 @@
-/*
- See LICENSE folder for this sample’s licensing information.
- 
- Abstract:
- A view showing the details for a medication.
- */
+//  MedicationDetail.swift
+//  MyMeds
+//
+//  Created by Dave Carlton on 12/11/20.
+//  Copyright © 2020 Apple. All rights reserved.
+//
+// Abstract:
+// A view showing the details for a medication.
 
 import SwiftUI
 import CoreData
