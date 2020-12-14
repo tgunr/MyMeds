@@ -16,7 +16,7 @@ struct MyMedsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MedicationList()
+            MedicationsList()
                 .environment(\.managedObjectContext, persistentStore.context)
                 .environmentObject(UserData())
         }

@@ -75,7 +75,6 @@ struct MedicationsList: View {
                 {
                     NavigationLink(
                         destination: AddMedication(isPresented: $addMode)
-                        
                     ){
                         Image(systemName: "plus")
                     }
