@@ -17,7 +17,7 @@ extension PersistentStore {
         med.category = "pain"
         med.dosage = 1
         med.essential = true
-        med.frequeny = 24
+        med.frequency = 24
         med.id = UUID()
         med.imagename = "pill"
         med.interval = "daily"

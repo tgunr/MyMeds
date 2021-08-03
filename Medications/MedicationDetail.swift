@@ -11,22 +11,27 @@ import SwiftUI
 import CoreData
 
 extension Medicine {
-//    @NSManaged public var name: String?
+//        @NSManaged public var name: String?
     public var wrappedName: String {
         get{name ?? "NoName"}
         set{name = newValue}
     }
+    
+    public dynamic class func fetchOne() -> NSFetchRequest<Medicine> {
+        return NSFetchRequest<Medicine>(entityName: "Medicine")
+    }
+
 }
 
 struct TopView: View {
-    @ObservedObject var medication: FetchedResults<Medicine>.Element
-
+//    @ObservedObject var medication: FetchedResults<Medicine>.Element
+    var medication: FetchedResults<Medicine>.Element
     var body: some View {
         CircleImage(name: medication.imagename!)
-                    .padding(.top)
+            .padding(.top)
         HStack() {
-            TextField("Enter text", text: $medication.wrappedName)
-            Text(verbatim: medication.name ?? "name")
+//            TextField("Enter text", text: $medication.wrappedName)
+            Text(verbatim: medication.name! )
                 .font(.title)
             EssentialButtonView(medication: medication)
             Spacer()
@@ -36,7 +41,7 @@ struct TopView: View {
 
 struct EssentialButtonView: View {
     var medication: FetchedResults<Medicine>.Element
-    
+
     var body: some View {
         Button(action: {
             medication.essential.toggle()
@@ -55,7 +60,7 @@ struct EssentialButtonView: View {
 struct DosageView: View {
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        let frequency = medication.frequeny
+        let frequency = medication.frequency
         Section(header: Text("Dosage")
                     .font(.subheadline)
         ) {
@@ -81,8 +86,8 @@ struct FrequencyView: View {
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
         HStack(alignment: .top) {
-            let frequency = medication.frequeny
-//            let interval = medication.interval
+            let frequency = medication.frequency
+            //            let interval = medication.interval
             Text("Frequency:")
                 .font(.headline)
             if frequency == 1 {
@@ -104,7 +109,7 @@ struct RemainingView: View {
             Text("Remaining: ")
                 .font(.headline)
             Text("\(medication.quantity)")
-            Text("\(medication.kind ?? "kind")s")
+//            Text("\(medication.kind )s")
             Spacer()
         }
     }
@@ -120,7 +125,7 @@ struct RefillView: View {
         
         HStack {
             //            Self.formatter.dateStyle = .long
-            Text("Refill Date: ")
+            Text("Refill Date: \((refilled!.addingTimeInterval(0)),style: .date)")
             if #available(iOS 14.0, *) {
                 Text(Date().addingTimeInterval(0),style: .date)
             } else {
@@ -183,7 +188,6 @@ struct NotifyView: View {
 
 struct MedicationDetail: View {
     var medication: FetchedResults<Medicine>.Element
-    
     var body: some View {
         VStack() {
             VStack() {
@@ -201,7 +205,8 @@ struct MedicationDetail: View {
 
 struct MedicationDetail_Previews: PreviewProvider {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    var medication: FetchedResults<Medicine>.Element
+
     static var previews: some View {
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let med = Medicine(context: moc)

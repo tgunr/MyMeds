@@ -113,7 +113,7 @@ struct MedicationsList: View {
 }
 
 struct MedicationsList_Previews: PreviewProvider {
-    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
+//    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
     
     static var previews: some View {
         Group {
@@ -124,3 +124,4 @@ struct MedicationsList_Previews: PreviewProvider {
         }
     }
 }
+

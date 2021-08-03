@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17707" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19141.11" systemVersion="21A5294g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Dates" representedClassName="Dates" syncable="YES" codeGenerationType="class">
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="finished" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="medicine" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="refilled" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicine" inverseName="dates" inverseEntity="Medicine"/>
     </entity>
     <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="medicine" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="taken" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicine" inverseName="history" inverseEntity="Medicine"/>
     </entity>
-    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+    <entity name="Medicine" representedClassName=".Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="dosage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="essential" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="frequeny" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imagename" optional="YES" attributeType="String"/>
         <attribute name="interval" optional="YES" attributeType="String"/>
@@ -26,12 +31,12 @@
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="refilled" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="dates" maxCount="1" deletionRule="Nullify" destinationEntity="Dates"/>
-        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History"/>
+        <relationship name="dates" maxCount="1" deletionRule="Nullify" destinationEntity="Dates" inverseName="relationship" inverseEntity="Dates"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="relationship" inverseEntity="History"/>
     </entity>
     <elements>
-        <element name="Dates" positionX="-4637.763977050781" positionY="-1257.569854736328" width="128" height="118"/>
-        <element name="History" positionX="-4608.794250488281" positionY="-1012.941345214844" width="128" height="59"/>
-        <element name="Medicine" positionX="-4929.092895507812" positionY="-1258.289855957031" width="128" height="269"/>
+        <element name="Dates" positionX="-4629.694885253906" positionY="-1336.67041015625" width="128" height="163"/>
+        <element name="History" positionX="-4515.886169433594" positionY="-1117.353210449219" width="128" height="103"/>
+        <element name="Medicine" positionX="-4887.710083007812" positionY="-1443.358001708984" width="128" height="269"/>
     </elements>
 </model>

@@ -14,13 +14,19 @@ extension Medicine  {
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         return request
     }
+    
+    static func firstMed() -> NSFetchRequest<Medicine> {
+        let request: NSFetchRequest<Medicine> = Medicine.fetchOne()
+        return request
+    }
 }
 
 
 class Medication: Identifiable, Codable {
     var id: UUID = UUID()
     var name: String = "Name"
-    fileprivate var imageName: String = "pill"
+//    fileprivate var imageName: String = "pill"
+    var imagename: String = "pill"
     var kind: String = ""
     var category: Category?
     var essential: Bool = false
@@ -57,7 +63,7 @@ class Medication: Identifiable, Codable {
 
 extension Medication {
     var image: Image {
-        ImageStore.shared.image(name: imageName)
+        ImageStore.shared.image(name: imagename)
     }
 }
 
