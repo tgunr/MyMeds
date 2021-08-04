@@ -62,33 +62,49 @@ class TestItems: TestData {
         return try super.getRows(count: count)
     }
     
+    func getFirst() -> Medicine {
+        do {
+            let rows = try getRows(count: 1)
+            guard let row = rows.first else { return newMed() }
+            return row
+        } catch { return newMed() }
+    }
+    
+    func setMed(med: Medicine, index: Int) -> Medicine {
+        med.name = "Medication \(index)"
+        med.start = Date()
+        med.category = "pain"
+        med.dosage = 1
+        med.essential = true
+        med.frequency = 24
+        med.id = UUID()
+        med.imagename = "pill"
+        med.interval = "daily"
+        med.refilled = Date()
+        med.quantity = 60
+        med.notify = true
+        med.notifylevel = 10
+        
+        let date = Dates(context: context)
+        date.created = Date()
+        date.medicine = med.id
+        date.start = Date()
+        med.dates = date
+        
+        let history = History(context: context)
+        history.taken = Date()
+        history.medicine = med.id
+        return med
+    }
+    
+    func newMed() -> Medicine {
+        return setMed(med: Medicine(context: context), index: 0)
+    }
+    
     override func addRows() throws {
         if super.noRowsExist() {
             for i in 1...5 {
-                let med = Medicine(context: context)
-                med.name = "Medication \(i)"
-                med.start = Date()
-                med.category = "pain"
-                med.dosage = 1
-                med.essential = true
-                med.frequency = 24
-                med.id = UUID()
-                med.imagename = "pill"
-                med.interval = "daily"
-                med.refilled = Date()
-                med.quantity = 60
-                med.notify = true
-                med.notifylevel = 10
-                
-                let date = Dates(context: context)
-                date.created = Date()
-                date.medicine = med.id
-                date.start = Date()
-                med.dates = date
-                
-                let history = History(context: context)
-                history.taken = Date()
-                history.medicine = med.id
+                _ = setMed(med: Medicine(context: context), index: i)
             }
             try! context.save()
         }

@@ -207,13 +207,14 @@ struct MedicationDetail_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistentStore.shared.mco
         let testItems = TestItems(context: context)
-        testItems.reset()
+//        testItems.reset()
+        let m = testItems.getFirst()
 
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let med = Medicine(context: moc)
         med.name = "Med Preview"
         return NavigationView {
-            MedicationDetail(medication: med)
+            MedicationDetail(medication: m)
         }
         .preferredColorScheme(.dark)
     }
