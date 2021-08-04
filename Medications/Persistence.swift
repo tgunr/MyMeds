@@ -115,7 +115,7 @@ class PersistentStore: ObservableObject {
     static let shared = PersistentStore()
     let modelName = "DataModel"
     
-    let persistentClouldContainer: NSPersistentCloudKitContainer = {
+    let persistenceContainer: NSPersistentCloudKitContainer = {
         let storeDescription = NSPersistentStoreDescription()
         storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
         storeDescription.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
@@ -137,29 +137,8 @@ class PersistentStore: ObservableObject {
         return container
     }()
     
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer.init(name: modelName)
-        // Enable history tracking
-        // (to facilitate previous NSPersistentCloudKitContainer's to load as NSPersistentContainer's)
-        // (not required when only using NSPersistentCloudKitContainer)
-//        guard let persistentStoreDescriptions = container.persistentStoreDescriptions.first else {
-//            fatalError("\(#function): Failed to retrieve a persistent store description.")
-//        }
-//        persistentStoreDescriptions.setOption(true as NSNumber,
-//                                              forKey: NSPersistentHistoryTrackingKey)
-//        persistentStoreDescriptions.setOption(true as NSNumber,
-//                                              forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error {
-                // Replace this implementation with code to handle the error appropriately.
-                fatalError("Unresolved error \(error)")
-            }
-        })
-        return container
-    }()
-
     var mco: NSManagedObjectContext {
-        persistentClouldContainer.viewContext
+        persistenceContainer.viewContext
     }
     
     func save() {
@@ -168,6 +147,57 @@ class PersistentStore: ObservableObject {
             try mco.save()
         } catch {
             print(error)
+        }
+    }
+    
+    func newMed() -> Medicine {
+        let med = Medicine(context: mco)
+        med.name = "Medication"
+        med.start = Date()
+        med.category = "pain"
+        med.dosage = 1
+        med.essential = true
+        med.frequency = 24
+        med.id = UUID()
+        med.imagename = "pill"
+        med.interval = "daily"
+        med.kind = "pill"
+        med.refilled = Date()
+        med.quantity = 60
+        med.notify = true
+        med.notifylevel = 10
+        
+        return med
+    }
+    
+    // Create a new Medicine record in database from the values in a Medication instance
+    func copyMed(newMed: Medication, med: Medicine) {
+        med.name = newMed.name
+        med.start = newMed.refilled
+        //        med.category = newMed.category
+        //        med.dosage = newMed.dosage
+        med.essential = newMed.essential
+        //        med.frequeny = newMed.frequency
+        med.id = UUID()
+        med.imagename = "pill"
+        //        med.interval = newMed.interval
+        med.kind = newMed.kind
+        //        med.refilled = newMed.refilled
+        //        med.quantity = newMed.quantity
+        med.notify = newMed.notify
+        //        med.notifylevel = newMed.notifyLevel
+    }
+    
+    func addMed(_ instanceOf: Medication) {
+        persistenceContainer.performBackgroundTask { context in
+            let med = Medicine(context: self.mco)
+            self.copyMed(newMed: instanceOf, med: med)
+            do {
+                try context.save()
+            } catch {
+                print("Something went wrong: \(error)")
+                context.rollback()
+            }
         }
     }
 }
@@ -196,7 +226,7 @@ struct PersistenceController {
         let controller = PersistenceController(inMemory: true)
         let viewContext = controller.container.viewContext
         for i in 0..<10 {
-            let med = Medicine(context: viewContext)
+            var med = Medicine(context: viewContext)
             med.name = "Medication \(i)"
             med.start = Date()
             med.category = "pain"

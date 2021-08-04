@@ -117,6 +117,7 @@ struct MedicationsList_Previews: PreviewProvider {
         let context = PersistentStore.shared.mco
         let testItems = TestItems(context: context)
         testItems.reset()
+//        try! testItems.context.save()
         
         return MedicationsList()
             .preferredColorScheme(.dark)

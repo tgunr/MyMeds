@@ -8,60 +8,6 @@
 
 import SwiftUI
 
-extension PersistentStore {
-    
-    func newMed() -> Medicine {
-        let med = Medicine(context: persistentContainer.viewContext)
-        med.name = "Medication"
-        med.start = Date()
-        med.category = "pain"
-        med.dosage = 1
-        med.essential = true
-        med.frequency = 24
-        med.id = UUID()
-        med.imagename = "pill"
-        med.interval = "daily"
-        med.kind = "pill"
-        med.refilled = Date()
-        med.quantity = 60
-        med.notify = true
-        med.notifylevel = 10
-        
-        return med
-    }
-    
-    // Create a new Medicine record in database from the values in a Medication instance
-    func copyMed(newMed: Medication, med: Medicine) {
-        med.name = newMed.name
-        med.start = newMed.refilled
-        //        med.category = newMed.category
-        //        med.dosage = newMed.dosage
-        med.essential = newMed.essential
-        //        med.frequeny = newMed.frequency
-        med.id = UUID()
-        med.imagename = "pill"
-        //        med.interval = newMed.interval
-        med.kind = newMed.kind
-        //        med.refilled = newMed.refilled
-        //        med.quantity = newMed.quantity
-        med.notify = newMed.notify
-        //        med.notifylevel = newMed.notifyLevel
-    }
-    
-    func addMed(_ instanceOf: Medication) {
-        persistentContainer.performBackgroundTask { context in
-            let med = Medicine(context: self.persistentContainer.viewContext)
-            self.copyMed(newMed: instanceOf, med: med)
-            do {
-                try context.save()
-            } catch {
-                print("Something went wrong: \(error)")
-                context.rollback()
-            }
-        }
-    }
-}
-
 struct AddTopView: View {
     
     @State private var medName = "MedName"

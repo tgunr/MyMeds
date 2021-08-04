@@ -10,18 +10,18 @@
 import SwiftUI
 import CoreData
 
-extension Medicine {
-//        @NSManaged public var name: String?
-    public var wrappedName: String {
-        get{name ?? "NoName"}
-        set{name = newValue}
-    }
-    
-    public dynamic class func fetchOne() -> NSFetchRequest<Medicine> {
-        return NSFetchRequest<Medicine>(entityName: "Medicine")
-    }
-
-}
+//extension Medicine {
+////        @NSManaged public var name: String?
+//    public var wrappedName: String {
+//        get{name ?? "NoName"}
+//        set{name = newValue}
+//    }
+//    
+//    public dynamic class func fetchOne() -> NSFetchRequest<Medicine> {
+//        return NSFetchRequest<Medicine>(entityName: "Medicine")
+//    }
+//
+//}
 
 struct TopView: View {
 //    @ObservedObject var medication: FetchedResults<Medicine>.Element
@@ -207,12 +207,9 @@ struct MedicationDetail_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistentStore.shared.mco
         let testItems = TestItems(context: context)
-//        testItems.reset()
+        testItems.reset()
         let m = testItems.getFirst()
-
-        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let med = Medicine(context: moc)
-        med.name = "Med Preview"
+        m.name = "Med Preview"
         return NavigationView {
             MedicationDetail(medication: m)
         }

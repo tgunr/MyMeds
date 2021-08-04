@@ -14,11 +14,6 @@ extension Medicine  {
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         return request
     }
-    
-    static func firstMed() -> NSFetchRequest<Medicine> {
-        let request: NSFetchRequest<Medicine> = Medicine.fetchOne()
-        return request
-    }
 }
 
 
