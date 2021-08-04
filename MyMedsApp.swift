@@ -16,6 +16,8 @@ struct MyMedsApp: App {
     var body: some Scene {
 //        let testItems = TestItems(context: persistentStore.mco)
 //        testItems.reset()
+//        try! testItems.context.save()
+//        
         return WindowGroup {
             MedicationsList()
                 .environment(\.managedObjectContext, persistentStore.mco)

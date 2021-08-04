@@ -204,10 +204,11 @@ struct MedicationDetail: View {
 }
 
 struct MedicationDetail_Previews: PreviewProvider {
-    @Environment(\.managedObjectContext) private var viewContext
-    var medication: FetchedResults<Medicine>.Element
-
     static var previews: some View {
+        let context = PersistentStore.shared.mco
+        let testItems = TestItems(context: context)
+        testItems.reset()
+
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let med = Medicine(context: moc)
         med.name = "Med Preview"

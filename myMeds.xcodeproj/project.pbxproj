@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7510CAB22518EC74001028D1 /* WelcomeView.swift */; };
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
+		754BBDF126BA633F00BE6701 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754BBDF026BA633F00BE6701 /* CloudKit.framework */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
 		757C1EC32585177B001B001D /* AddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1EC22585177B001B001D /* AddMedication.swift */; };
 		757C1EC825851DA2001B001D /* pill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 757C1EC725851DA2001B001D /* pill.jpg */; };
@@ -32,6 +33,7 @@
 		7510CAB22518EC74001028D1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		7536C921251BDAD700F778F2 /* MyMeds.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyMeds.entitlements; sourceTree = "<group>"; };
 		7536C922251BDAE600F778F2 /* MyMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsApp.swift; sourceTree = "<group>"; };
+		754BBDF026BA633F00BE6701 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		75638DC4251A9DD40030FE87 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		757C1EC22585177B001B001D /* AddMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedication.swift; sourceTree = "<group>"; };
@@ -59,12 +61,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				754BBDF126BA633F00BE6701 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		754BBDEF26BA633F00BE6701 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				754BBDF026BA633F00BE6701 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B7394859229F194000C47603 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +86,7 @@
 				7536C921251BDAD700F778F2 /* MyMeds.entitlements */,
 				B7394864229F194000C47603 /* Medications */,
 				B7394863229F194000C47603 /* Products */,
+				754BBDEF26BA633F00BE6701 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -367,9 +379,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyMeds.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Medications/Preview\\ Content";
-				DEVELOPMENT_TEAM = 98LGF33H43;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -391,9 +405,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyMeds.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Medications/Preview\\ Content";
-				DEVELOPMENT_TEAM = 98LGF33H43;
+				DEVELOPMENT_TEAM = NL3267E99V;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
