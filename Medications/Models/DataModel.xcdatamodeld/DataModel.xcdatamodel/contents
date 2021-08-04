@@ -16,7 +16,7 @@
         <attribute name="taken" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicine" inverseName="history" inverseEntity="Medicine"/>
     </entity>
-    <entity name="Medicine" representedClassName=".Medicine" syncable="YES" codeGenerationType="class">
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="dosage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="essential" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

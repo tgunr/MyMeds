@@ -86,6 +86,9 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {        
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview1.container.viewContext)
+        let context = PersistentStore.shared.mco
+        let testItems = TestItems(context: context)
+        testItems.reset()
+        ContentView().environment(\.managedObjectContext, context)
     }
 }

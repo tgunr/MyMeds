@@ -11,13 +11,14 @@ import CoreData
 @main
 struct MyMedsApp: App {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var persistentStore = PersistentStore.shared
-//    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
+    private var persistentStore = PersistentStore.shared
 
     var body: some Scene {
-        WindowGroup {
+//        let testItems = TestItems(context: persistentStore.mco)
+//        testItems.reset()
+        return WindowGroup {
             MedicationsList()
-                .environment(\.managedObjectContext, persistentStore.context)
+                .environment(\.managedObjectContext, persistentStore.mco)
                 .environmentObject(UserData())
         }
         .onChange(of: scenePhase) { phase in
@@ -38,6 +39,7 @@ struct MyMedsApp: App {
 
 struct MyMedsApp_Previews: PreviewProvider {
 //    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
+    
     static var previews: some View {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }

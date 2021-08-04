@@ -113,15 +113,15 @@ struct MedicationsList: View {
 }
 
 struct MedicationsList_Previews: PreviewProvider {
-//    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
-    
     static var previews: some View {
-        Group {
-            MedicationsList()
-                .preferredColorScheme(.dark)
-                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                .environmentObject(UserData())
-        }
+        let context = PersistentStore.shared.mco
+        let testItems = TestItems(context: context)
+        testItems.reset()
+        
+        return MedicationsList()
+            .preferredColorScheme(.dark)
+            .environment(\.managedObjectContext, testItems.context)
+            .environmentObject(UserData())
     }
 }
 
