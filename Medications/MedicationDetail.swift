@@ -24,24 +24,26 @@ import CoreData
 //}
 
 struct TopView: View {
-//    @ObservedObject var medication: FetchedResults<Medicine>.Element
+    //    @ObservedObject var medication: FetchedResults<Medicine>.Element
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        CircleImage(name: medication.imagename!)
-            .padding(.top)
-        HStack() {
-//            TextField("Enter text", text: $medication.wrappedName)
-            Text(verbatim: medication.name! )
-                .font(.title)
-            EssentialButtonView(medication: medication)
-            Spacer()
+        VStack {
+            CircleImage(name: medication.imagename!)
+                .padding(.top)
+            HStack() {
+                //            TextField("Enter text", text: $medication.wrappedName)
+                Text(verbatim: medication.name! )
+                    .font(.title)
+                EssentialButtonView(medication: medication)
+                Spacer()
+            }
         }
     }
 }
 
 struct EssentialButtonView: View {
     var medication: FetchedResults<Medicine>.Element
-
+    
     var body: some View {
         Button(action: {
             medication.essential.toggle()
@@ -53,31 +55,6 @@ struct EssentialButtonView: View {
                 Image(systemName: "star")
                     .foregroundColor(Color.gray)
             }
-        }
-    }
-}
-
-struct DosageView: View {
-    var medication: FetchedResults<Medicine>.Element
-    var body: some View {
-        let frequency = medication.frequency
-        Section(header: Text("Dosage")
-                    .font(.subheadline)
-        ) {
-            HStack(alignment: .top) {
-                let dose = medication.dosage
-                let dosageString = "\(dose) \(medication.kind ?? "kind")"
-                Text(dosageString)
-                    .font(.subheadline)
-                if frequency == 1 {
-                    Text("Every Hour")
-                } else {
-                    Text("Every \(frequency)")
-                    
-                }
-                Spacer()
-            }
-            .padding(.top, 2.0)
         }
     }
 }
@@ -109,7 +86,7 @@ struct RemainingView: View {
             Text("Remaining: ")
                 .font(.headline)
             Text("\(medication.quantity)")
-//            Text("\(medication.kind )s")
+            //            Text("\(medication.kind )s")
             Spacer()
         }
     }
@@ -136,70 +113,35 @@ struct RefillView: View {
     }
 }
 
-struct NotifyButtonOnOff: ButtonStyle {
-    let onoff: Bool
-    
-    init(_ switsh: Bool) {
-        self.onoff = switsh
-    }
-    
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .frame(width: 110, height: 35, alignment: .center)
-            .background(self.onoff ? Color.blue : Color.white)
-            .foregroundColor(self.onoff ? Color.white : Color.gray)
-            .cornerRadius(30)
-            .overlay(RoundedRectangle(cornerRadius: 30) .stroke(self.onoff ? Color.blue : Color.gray, lineWidth: 1))
-    }
-}
-
-struct NotifyButtonView: View {
-    @EnvironmentObject var userData: UserData
-    @State private var n = true
-    var medication: FetchedResults<Medicine>.Element
-    var body: some View {
-        Toggle(isOn: $n) {
-            Text("Notify")
-        }
-    }
-}
-
-
-struct NotifyView: View {
-    var medication: FetchedResults<Medicine>.Element
-    var body: some View {
-        let level = medication.notifylevel
-        Text("Notification")
-            .font(.title)
-            .fontWeight(.bold)
-            .padding(.top)
-        HStack {
-            Spacer()
-        }
-        Form {
-            Section(header: Text("Notify at percentage left")) {
-                Text("\(level)")
-            }
-            NotifyButtonView(medication: medication)
-        }
-        
-    }
-}
-
 struct MedicationDetail: View {
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
-        VStack() {
             VStack() {
                 TopView(medication: medication)
-                DosageView(medication: medication)
                 FrequencyView(medication: medication)
                 RemainingView(medication: medication)
                 RefillView(medication: medication)
-                NotifyView(medication: medication)
+                NavigationView {
+//                VStack {
+//                    HStack {
+//                        NavigationLink("Frequency Detail",
+//                            destination: FrequencyView(medication: medication))
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        NavigationLink("Dosage Detail",
+//                            destination: DosageDetailView(medication: medication))
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        NavigationLink("Notification Detail",
+//                            destination: NotifyDetailView(medication: medication))
+//                        Spacer()
+//                    }
+//                }
+//                    .navigationViewStyle(.automatic)
+                }
             }
-            Spacer()
-        }
     }
 }
 
@@ -207,11 +149,11 @@ struct MedicationDetail_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistentStore.shared.mco
         let testItems = TestItems(context: context)
-        testItems.reset()
-        let m = testItems.getFirst()
-        m.name = "Med Preview"
+        //        testItems.reset()
+        let med = testItems.getFirst()
+        med.name = "Med Preview"
         return NavigationView {
-            MedicationDetail(medication: m)
+            MedicationDetail(medication: med)
         }
         .preferredColorScheme(.dark)
     }

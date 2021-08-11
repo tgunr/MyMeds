@@ -14,9 +14,9 @@ struct MyMedsApp: App {
     private var persistentStore = PersistentStore.shared
 
     var body: some Scene {
-//        let testItems = TestItems(context: persistentStore.mco)
-//        testItems.reset()
-//        try! testItems.context.save()
+        let testItems = TestItems(context: persistentStore.mco)
+        testItems.reset()
+        try! testItems.context.save()
 //        let f = testItems.getFirst()
         return WindowGroup {
             MedicationsList()

@@ -11,9 +11,11 @@
 		7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7536C922251BDAE600F778F2 /* MyMedsApp.swift */; };
 		754BBDF126BA633F00BE6701 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754BBDF026BA633F00BE6701 /* CloudKit.framework */; };
 		75638DC2251A9D950030FE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75638DC1251A9D950030FE87 /* Persistence.swift */; };
+		757BF46D26BC437C008E105A /* NotifyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BF46C26BC437C008E105A /* NotifyDetailView.swift */; };
 		757C1EC32585177B001B001D /* AddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1EC22585177B001B001D /* AddMedication.swift */; };
 		757C1EC825851DA2001B001D /* pill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 757C1EC725851DA2001B001D /* pill.jpg */; };
 		757C1ECE25867F3D001B001D /* MedicationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1ECD25867F3D001B001D /* MedicationsList.swift */; };
+		7589F29A26BC5B4B00AC82CD /* DosageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7589F29926BC5B4B00AC82CD /* DosageDetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
 		B739486A229F194000C47603 /* MedicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7394869229F194000C47603 /* MedicationDetail.swift */; };
@@ -35,10 +37,12 @@
 		7536C922251BDAE600F778F2 /* MyMedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMedsApp.swift; sourceTree = "<group>"; };
 		754BBDF026BA633F00BE6701 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		75638DC1251A9D950030FE87 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		757BF46C26BC437C008E105A /* NotifyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyDetailView.swift; sourceTree = "<group>"; };
 		757C1EC22585177B001B001D /* AddMedication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedication.swift; sourceTree = "<group>"; };
 		757C1EC725851DA2001B001D /* pill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pill.jpg; path = Medications/Assets.xcassets/pill.jpg; sourceTree = SOURCE_ROOT; };
 		757C1ECD25867F3D001B001D /* MedicationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsList.swift; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		7589F29926BC5B4B00AC82CD /* DosageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosageDetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/percocet.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
 		B7394862229F194000C47603 /* MyMeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,8 @@
 				B739489E229F2D9700C47603 /* MedicationRow.swift */,
 				757C1EC22585177B001B001D /* AddMedication.swift */,
 				B7394869229F194000C47603 /* MedicationDetail.swift */,
+				7589F29926BC5B4B00AC82CD /* DosageDetailView.swift */,
+				757BF46C26BC437C008E105A /* NotifyDetailView.swift */,
 				B739487D229F1C0100C47603 /* Supporting Views */,
 				B7394883229F291A00C47603 /* Resources */,
 				B739486B229F194200C47603 /* Assets.xcassets */,
@@ -227,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7589F29A26BC5B4B00AC82CD /* DosageDetailView.swift in Sources */,
 				7536C925251BDB3B00F778F2 /* MyMedsApp.swift in Sources */,
 				B7394882229F28B900C47603 /* Data.swift in Sources */,
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,
@@ -235,6 +242,7 @@
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
 				757C1EC32585177B001B001D /* AddMedication.swift in Sources */,
+				757BF46D26BC437C008E105A /* NotifyDetailView.swift in Sources */,
 				75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */,
 				B7D2AAC5229F4D7C0061E5F5 /* UserData.swift in Sources */,
 				757C1ECE25867F3D001B001D /* MedicationsList.swift in Sources */,
@@ -381,21 +389,23 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Medications/Preview\\ Content";
-				DEVELOPMENT_TEAM = NL3267E99V;
+				DEVELOPMENT_TEAM = BG856GB4D8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.free.mymeds;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.davec.mymeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -408,21 +418,23 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "Medications/Preview\\ Content";
-				DEVELOPMENT_TEAM = NL3267E99V;
+				DEVELOPMENT_TEAM = BG856GB4D8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.polymicro.free.mymeds;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.davec.mymeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
