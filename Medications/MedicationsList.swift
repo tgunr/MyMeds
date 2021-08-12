@@ -21,69 +21,21 @@ struct MedicationsListToolbar: View {
                 Button(action: {
                     medications.forEach(viewContext.delete)
                 }, label: {
-                        Text("Delete All")
-                    })
+                    Text("Delete All")
+                })
                 Text("                                         ")
             }
         }
     }
 }
 
-struct CheckListTab: View {
-    var body: some View {
-        Text("Today")
-            .tabItem {
-            Image(systemName: "checklist")
-            Text("Today")
-        }
-    }
-}
-
 struct MedicationsList: View {
-    @EnvironmentObject private var userData: UserData
     @Environment(\.managedObjectContext) private var managedObjectContext
+    @EnvironmentObject private var userData: UserData
     @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
 
     @State var addMode = false
-
-    var body: some View {
-        TabView {
-            CheckListTab()
-            MedicationsListTab()
-//            EditListTab()
-        }
-    }
-
-    //            .toolbar {
-    //                ToolbarItem( placement: .navigationBarLeading ) {
-    //                    EditButton() }
-    //                // Adding this item causes 2 instances to be created on Mac! Why?
-    //                //                ToolbarItem( placement: .navigationBarLeading, content: {
-    //                //                    Button(action: {
-    //                //                        deleteAll(medications)
-    //                //                    }, label: {
-    //                //                        Text("Delete")
-    //                //                    })
-    //                //                })
-    //                ToolbarItem( placement: .automatic )
-    //                {
-    //                    NavigationLink(
-    //                        destination: AddMedication(isPresented: $addMode)
-    //                    ){
-    //                        Image(systemName: "plus")
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-}
-
-
-struct MedicationsListTab: View {
-    @Environment(\.managedObjectContext) private var managedObjectContext
-    @EnvironmentObject private var userData: UserData
-    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -96,7 +48,7 @@ struct MedicationsListTab: View {
                         if !self.userData.showEssentialOnly || medication.essential {
                             NavigationLink(
                                 destination: MedicationDetail(medication: medication)
-                                //                                    .environmentObject(self.userData)
+                                    .environmentObject(self.userData)
                             ) {
                                 MedicationRow(medication: medication)
                             }
@@ -104,13 +56,21 @@ struct MedicationsListTab: View {
                     }
                         .onDelete(perform: deleteItems)
                 }
-                .navigationBarTitle("Medications", displayMode: .automatic)
                 Spacer()
             }
-        }
-            .tabItem {
-            Image(systemName: "list.dash")
-            Text("List")
+            .navigationBarTitle("Medications", displayMode: .automatic)
+            .toolbar {
+                ToolbarItem( placement: .navigationBarLeading ) {
+                    NavigationLink(
+                        destination: AddMedication(isPresented: $addMode)
+                    ){
+                        Image(systemName: "plus.app")
+                    }
+                }
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    NavigationLink("Edit", destination: EditButton())
+//                }
+            }
         }
     }
 
@@ -157,4 +117,7 @@ struct MedicationsList_Previews: PreviewProvider {
             .environmentObject(UserData())
     }
 }
+
+
+
 

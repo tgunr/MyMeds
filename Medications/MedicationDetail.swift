@@ -10,30 +10,32 @@
 import SwiftUI
 import CoreData
 
-//extension Medicine {
-////        @NSManaged public var name: String?
-//    public var wrappedName: String {
-//        get{name ?? "NoName"}
-//        set{name = newValue}
-//    }
-//    
+extension Medicine {
+    public var wrappedName: String {
+        get { name ?? "NoName" }
+        set { name = newValue }
+    }
+
 //    public dynamic class func fetchOne() -> NSFetchRequest<Medicine> {
 //        return NSFetchRequest<Medicine>(entityName: "Medicine")
 //    }
-//
-//}
+
+}
 
 struct TopView: View {
-    //    @ObservedObject var medication: FetchedResults<Medicine>.Element
-    var medication: FetchedResults<Medicine>.Element
+//    @ObservxedObject var medication: FetchedResults<Medicine>.Element
+    @ObservedObject var medication: Medicine
+
+//    var medication: FetchedResults<Medicine>.Element
+    @State var mednameField: String = ""
+
     var body: some View {
         VStack {
             CircleImage(name: medication.imagename!)
-                .padding(.top)
             HStack() {
-                //            TextField("Enter text", text: $medication.wrappedName)
-                Text(verbatim: medication.name! )
-                    .font(.title)
+                TextField("Medication name", text: $medication.wrappedName)
+//                    medication.name = self.mednameField
+//                })
                 EssentialButtonView(medication: medication)
                 Spacer()
             }
@@ -43,7 +45,7 @@ struct TopView: View {
 
 struct EssentialButtonView: View {
     var medication: FetchedResults<Medicine>.Element
-    
+
     var body: some View {
         Button(action: {
             medication.essential.toggle()
@@ -71,11 +73,10 @@ struct FrequencyView: View {
                 Text("Every Hour")
             } else {
                 Text("Every \(frequency)")
-                
+
             }
             Spacer()
         }
-        
     }
 }
 
@@ -99,12 +100,12 @@ struct RefillView: View {
         let refilled = medication.refilled
         //        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
         //        formatter.timeStyle = .short
-        
+
         HStack {
             //            Self.formatter.dateStyle = .long
-            Text("Refill Date: \((refilled!.addingTimeInterval(0)),style: .date)")
+            Text("Refill Date: \((refilled!.addingTimeInterval(0)), style: .date)")
             if #available(iOS 14.0, *) {
-                Text(Date().addingTimeInterval(0),style: .date)
+                Text(Date().addingTimeInterval(0), style: .date)
             } else {
                 // Fallback on earlier versions
             }
@@ -114,34 +115,36 @@ struct RefillView: View {
 }
 
 struct MedicationDetail: View {
+    @FetchRequest(entity: Medicine.entity(), sortDescriptors: [])
+    var medications: FetchedResults<Medicine>
     var medication: FetchedResults<Medicine>.Element
     var body: some View {
-            VStack() {
-                TopView(medication: medication)
-                FrequencyView(medication: medication)
-                RemainingView(medication: medication)
-                RefillView(medication: medication)
-                NavigationView {
-//                VStack {
-//                    HStack {
-//                        NavigationLink("Frequency Detail",
-//                            destination: FrequencyView(medication: medication))
-//                        Spacer()
-//                    }
-//                    HStack {
-//                        NavigationLink("Dosage Detail",
-//                            destination: DosageDetailView(medication: medication))
-//                        Spacer()
-//                    }
-//                    HStack {
-//                        NavigationLink("Notification Detail",
-//                            destination: NotifyDetailView(medication: medication))
-//                        Spacer()
-//                    }
-//                }
-//                    .navigationViewStyle(.automatic)
+        VStack() {
+            TopView(medication: medication)
+//            FrequencyView(medication: medication)
+//            RemainingView(medication: medication)
+//            RefillView(medication: medication)
+            NavigationView {
+                VStack {
+                    HStack {
+                        NavigationLink("Frequency Detail",
+                                       destination: FrequencyView(medication: medication))
+                        Spacer()
+                    }
+                    HStack {
+                        NavigationLink("Dosage Detail",
+                                       destination: DosageDetailView(medication: medication))
+                        Spacer()
+                    }
+                    HStack {
+                        NavigationLink("Notification Detail",
+                                       destination: NotifyDetailView(medication: medication))
+                        Spacer()
+                    }
                 }
+                .navigationViewStyle(.automatic)
             }
+        }
     }
 }
 

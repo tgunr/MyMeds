@@ -15,6 +15,8 @@
 		757C1EC32585177B001B001D /* AddMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1EC22585177B001B001D /* AddMedication.swift */; };
 		757C1EC825851DA2001B001D /* pill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 757C1EC725851DA2001B001D /* pill.jpg */; };
 		757C1ECE25867F3D001B001D /* MedicationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757C1ECD25867F3D001B001D /* MedicationsList.swift */; };
+		7588759D26C471BB00341531 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588759C26C471BB00341531 /* DashboardView.swift */; };
+		7588759F26C473D700341531 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588759E26C473D700341531 /* TodayView.swift */; };
 		7589F29A26BC5B4B00AC82CD /* DosageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7589F29926BC5B4B00AC82CD /* DosageDetailView.swift */; };
 		75B6CA06251A82FF00E39D04 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B6CA04251A82FF00E39D04 /* DataModel.xcdatamodeld */; };
 		75FFD5CD25163F6B0081A351 /* percocet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FFD5CC25163F6B0081A351 /* percocet.jpg */; };
@@ -42,6 +44,8 @@
 		757C1EC725851DA2001B001D /* pill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pill.jpg; path = Medications/Assets.xcassets/pill.jpg; sourceTree = SOURCE_ROOT; };
 		757C1ECD25867F3D001B001D /* MedicationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsList.swift; sourceTree = "<group>"; };
 		757D4C1125193AC4002A0E71 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		7588759C26C471BB00341531 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		7588759E26C473D700341531 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		7589F29926BC5B4B00AC82CD /* DosageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosageDetailView.swift; sourceTree = "<group>"; };
 		75B6CA05251A82FF00E39D04 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		75FFD5CC25163F6B0081A351 /* percocet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = percocet.jpg; path = Medications/Assets.xcassets/percocet.imageset/percocet.jpg; sourceTree = SOURCE_ROOT; };
@@ -106,6 +110,8 @@
 				B739487E229F282200C47603 /* Models */,
 				75638DC1251A9D950030FE87 /* Persistence.swift */,
 				757C1ECD25867F3D001B001D /* MedicationsList.swift */,
+				7588759E26C473D700341531 /* TodayView.swift */,
+				7588759C26C471BB00341531 /* DashboardView.swift */,
 				B739489E229F2D9700C47603 /* MedicationRow.swift */,
 				757C1EC22585177B001B001D /* AddMedication.swift */,
 				B7394869229F194000C47603 /* MedicationDetail.swift */,
@@ -239,7 +245,9 @@
 				B739487A229F1B3F00C47603 /* CircleImage.swift in Sources */,
 				7510CAB32518EC74001028D1 /* WelcomeView.swift in Sources */,
 				75638DC2251A9D950030FE87 /* Persistence.swift in Sources */,
+				7588759F26C473D700341531 /* TodayView.swift in Sources */,
 				B739486A229F194000C47603 /* MedicationDetail.swift in Sources */,
+				7588759D26C471BB00341531 /* DashboardView.swift in Sources */,
 				B739489F229F2D9700C47603 /* MedicationRow.swift in Sources */,
 				757C1EC32585177B001B001D /* AddMedication.swift in Sources */,
 				757BF46D26BC437C008E105A /* NotifyDetailView.swift in Sources */,
@@ -393,7 +401,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,7 +430,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Medications/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

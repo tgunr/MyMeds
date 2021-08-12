@@ -7,6 +7,9 @@
 
 import SwiftUI
 import CoreData
+import OSLog
+
+var log = Logger()
 
 @main
 struct MyMedsApp: App {
@@ -14,12 +17,8 @@ struct MyMedsApp: App {
     private var persistentStore = PersistentStore.shared
 
     var body: some Scene {
-        let testItems = TestItems(context: persistentStore.mco)
-        testItems.reset()
-        try! testItems.context.save()
-//        let f = testItems.getFirst()
         return WindowGroup {
-            MedicationsList()
+            DashboardView()
                 .environment(\.managedObjectContext, persistentStore.mco)
                 .environmentObject(UserData())
         }
@@ -39,10 +38,24 @@ struct MyMedsApp: App {
     }
 }
 
+struct DBResetView: View {
+    private var persistentStore = PersistentStore.shared
+    var body: some View {
+        Button("Reset Database", action: {
+            let testItems = TestItems(context: persistentStore.mco)
+            testItems.reset()
+            try! testItems.context.save()
+            log.log("Database Reset")
+            //        let f = testItems.getFirst()
+        })
+        .buttonStyle(BorderedButtonStyle())
+    }
+}
+
 struct MyMedsApp_Previews: PreviewProvider {
 //    @FetchRequest(fetchRequest: Medicine.allMedicinesFetchRequest()) var medications: FetchedResults<Medicine>
     
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        DBResetView()
     }
 }
