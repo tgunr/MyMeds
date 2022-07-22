@@ -16,7 +16,6 @@ extension Medicine  {
     }
 }
 
-
 class Medication: Identifiable, Codable {
     var id: UUID = UUID()
     var name: String = "Name"
@@ -60,9 +59,4 @@ extension Medication {
     var image: Image {
         ImageStore.shared.image(name: imagename)
     }
-}
-
-struct Coordinates: Hashable, Codable {
-    var latitude: Double
-    var longitude: Double
 }
