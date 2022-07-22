@@ -26,7 +26,6 @@ struct DosageDetailView: View {
                     Text("Every \(frequency)")
 
                 }
-                Spacer()
             }
             .padding(.top, 2.0)
         }

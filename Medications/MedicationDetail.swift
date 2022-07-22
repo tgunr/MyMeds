@@ -37,7 +37,6 @@ struct TopView: View {
 //                    medication.name = self.mednameField
 //                })
                 EssentialButtonView(medication: medication)
-                Spacer()
             }
         }
     }
@@ -61,21 +60,53 @@ struct EssentialButtonView: View {
     }
 }
 
+enum Flavor: String, CaseIterable, Identifiable {
+    case hour, day
+    var id: Self { self }
+    
+    func flavorText(amount: Int) -> String {
+        switch id {
+        case .hour:
+            return amount > 1 ? "hours" : "hour"
+        case .day:
+            return amount > 1 ? "days" : "day"
+        }
+    }
+}
+
+
 struct FrequencyView: View {
     var medication: FetchedResults<Medicine>.Element
-    var body: some View {
-        HStack(alignment: .top) {
-            let frequency = medication.frequency
-            //            let interval = medication.interval
-            Text("Frequency:")
-                .font(.headline)
-            if frequency == 1 {
-                Text("Every Hour")
-            } else {
-                Text("Every \(frequency)")
+    @State private var hour = 1.0
+    @State private var isEditing = false
+    @State private var hourText = "hour"
+    @State private var selectedFlavor: Flavor = .hour
 
-            }
-            Spacer()
+    var body: some View {
+        VStack {
+            Text("Frequency")
+                .font(.headline)
+        }
+//            let frequency = medication.frequency
+            //            let interval = medication.interval
+            Slider(
+                    value: $hour,
+                    in: 1...24,
+                    onEditingChanged: { editing in
+                        isEditing = editing
+                    }
+                )
+        
+//        hourText = selectedFlavor.flavorText()
+        Text("Every \(Int(hour)) \(selectedFlavor.flavorText(amount: Int(hour)))")
+                .foregroundColor(isEditing ? .red : .blue)
+        Text("Interval")
+            List {
+                Picker("Interval", selection: $selectedFlavor) {
+                    Text("Hour").tag(Flavor.hour)
+                    Text("Day").tag(Flavor.day)
+                }
+            
         }
     }
 }
@@ -88,7 +119,6 @@ struct RemainingView: View {
                 .font(.headline)
             Text("\(medication.quantity)")
             //            Text("\(medication.kind )s")
-            Spacer()
         }
     }
 }
@@ -97,19 +127,21 @@ struct RefillView: View {
     var medication: FetchedResults<Medicine>.Element
     static var formatter = DateFormatter()
     var body: some View {
-        let refilled = medication.refilled
         //        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
         //        formatter.timeStyle = .short
 
         HStack {
             //            Self.formatter.dateStyle = .long
-            Text("Refill Date: \((refilled!.addingTimeInterval(0)), style: .date)")
+            if let refilled = medication.refilled {
+                Text("Refill Date: \((refilled.addingTimeInterval(0)), style: .date)")
+            } else {
+                Text("Refill Date: unkown")
+            }
             if #available(iOS 14.0, *) {
                 Text(Date().addingTimeInterval(0), style: .date)
             } else {
                 // Fallback on earlier versions
             }
-            Spacer()
         }
     }
 }
@@ -121,38 +153,40 @@ struct MedicationDetail: View {
     var body: some View {
         VStack() {
             TopView(medication: medication)
-//            FrequencyView(medication: medication)
-//            RemainingView(medication: medication)
-//            RefillView(medication: medication)
-            NavigationView {
-                VStack {
-                    HStack {
-                        NavigationLink("Frequency Detail",
-                                       destination: FrequencyView(medication: medication))
-                        Spacer()
-                    }
-                    HStack {
-                        NavigationLink("Dosage Detail",
-                                       destination: DosageDetailView(medication: medication))
-                        Spacer()
-                    }
-                    HStack {
-                        NavigationLink("Notification Detail",
-                                       destination: NotifyDetailView(medication: medication))
-                        Spacer()
-                    }
-                }
-                .navigationViewStyle(.automatic)
+            FrequencyView(medication: medication)
+            RemainingView(medication: medication)
+            RefillView(medication: medication)
+            DosageDetailView(medication: medication)
+            NotifyDetailView(medication: medication)
+//            NavigationView {
+//                VStack {
+//                    HStack {
+//                        NavigationLink("Frequency Detail",
+//                                       destination: FrequencyView(medication: medication))
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        NavigationLink("Dosage Detail",
+//                                       destination: DosageDetailView(medication: medication))
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        NavigationLink("Notification Detail",
+//                                       destination: NotifyDetailView(medication: medication))
+//                        Spacer()
+//                    }
+//                }
+//                .navigationViewStyle(.automatic)
             }
         }
     }
-}
+
 
 struct MedicationDetail_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistentStore.shared.mco
         let testItems = TestItems(context: context)
-        //        testItems.reset()
+//        testItems.reset()
         let med = testItems.getFirst()
         med.name = "Med Preview"
         return NavigationView {

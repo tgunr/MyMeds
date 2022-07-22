@@ -26,7 +26,6 @@ struct AddTopView: View {
 
 struct AddMedication: View {
     @Environment(\.presentationMode) var presentationMode
-
     @State private var medInstance: Medication = Medication()
     @Binding var isPresented: Bool
     
